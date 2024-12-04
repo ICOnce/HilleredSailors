@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace BoatLibrary.Interfaces
 {
-    internal interface IBooking
+    public interface IBooking
     {
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public IMember Booker { get; set; }
+        public List<IBoat> Boats{get;}
+
+        public void AddBoat(IBoat boat);
+        public IBoat GetBoat(string sailNumber);
+        public IBoat DeleteBoat(string sailNumber);
+        public List<IBoat> GetBoats();
+
+
     }
 }

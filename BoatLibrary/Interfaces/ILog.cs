@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoatLibrary.Interfaces
 {
-    internal interface ILog
+    public interface ILog
     {
     }
 }

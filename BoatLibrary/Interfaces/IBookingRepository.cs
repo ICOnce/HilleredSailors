@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace BoatLibrary.Interfaces
 {
-    internal interface IBookingRepository
+    public interface IBookingRepository
     {
+        public int Count { get; }
+        public List<IBooking> GetAll();
+        public void ABooking(IBooking booking);
+        public IBooking GetBookingByMember(Member m);
+
+        public string Tostring();
+
     }
 }
