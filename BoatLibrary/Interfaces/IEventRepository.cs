@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BoatLibrary.Interfaces
+public interface IEventRepository
 {
-    internal interface IEventRepository
-    {
-    }
+    int EventCount { get; }
+
+    IClubEvent GetEvent(DateTime dateTime);
+    string ToString();
 }
+
