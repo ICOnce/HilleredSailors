@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-internal class Date : IDate
+namespace BoatLibrary.Interfaces
 {
+    internal interface ILog
+    {
+    }
 }
-

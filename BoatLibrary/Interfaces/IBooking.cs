@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public interface IDate
+namespace BoatLibrary.Interfaces
 {
+    internal interface IBooking
+    {
+    }
 }
-

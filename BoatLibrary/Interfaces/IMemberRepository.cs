@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class MemberRepo : IMemberRepository
+public interface IMemberRepository
 {
-
 }
-
