@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 public interface ILog
 {
-    internal interface ILog
+    public interface ILog
     {
+        int EntryCount { get; }
+
+        void AddEntry(string entry);
+        string GetEntry(int id);
+        List<string> GetAll();
+        String ToString();
     }
 }
 
