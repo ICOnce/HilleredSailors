@@ -6,6 +6,46 @@ using System.Threading.Tasks;
 
 public class MemberRepo : IMemberRepository
 {
+    public List<IMember> MemberList { get; set; }
+    public int MemberCount { get { return MemberList.Count; } }
 
+    public void AddMember(IMember member)
+    {
+        MemberList.Add(member);
+    }
+
+    public void DeleteMember(int id)
+    {
+        foreach (var member in MemberList) {
+            if (member.Id==id) {
+                MemberList.Remove(member);
+                return;
+            }
+        }
+    }
+
+    public List<IMember> GetAll()
+    {
+        return MemberList;
+    }
+
+    public IMember GetMember(int id)
+    {
+        foreach (var member in MemberList) {
+            if (member.Id==id) return member;
+        }
+        return null;
+    }
+
+    public void UpdateMember(int ID, IMember member)
+    {
+        foreach (var m in MemberList)
+        {
+            if (m.Id == ID) {
+                MemberList.Remove(m);
+                MemberList.Add(member);
+            }
+        }
+    }
 }
 

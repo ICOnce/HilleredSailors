@@ -11,7 +11,8 @@ namespace BoatLibrary.Interfaces
         public int Count { get; }
         public List<IBooking> GetAll();
         public void ABooking(IBooking booking);
-        public IBooking GetBookingByMember(Member m);
+
+        public IBooking GetBookingByMember(IMember m);
 
         public string Tostring();
 

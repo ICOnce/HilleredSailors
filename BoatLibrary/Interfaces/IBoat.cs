@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 public interface IBoat
 {
-    public string Model { get; set; }
+    public string Model { get; }
     public string Name { get; set; }
-    public string SailNumber { get; set; } 
+    public string SailNumber { get; } 
     public string MotorInfo { get; set; }
-    public int Length { get; set; }
-    public int Width { get; set; }
+    public int Length { get; }
+    public int Width { get;  }
 
     public Dictionary<DateTime, Boolean> Calender { get; set; }
 
