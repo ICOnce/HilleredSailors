@@ -15,7 +15,7 @@ namespace BoatLibrary.Interfaces
 
         public void AddBoat(IBoat boat);
         public IBoat GetBoat(string sailNumber);
-        public IBoat DeleteBoat(IBoat boat);
+        public void DeleteBoat(IBoat boat);
         public List<IBoat> GetBoats();
 
 

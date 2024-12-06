@@ -1,0 +1,29 @@
+﻿@page
+@model HilleredSailors.Pages.member.CreateMemberModel
+@{
+    ViewData["Title"] = "CreateMember";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <label asp-for="@Model.m.Name" class="control-label"></label>
+        <input asp-for="@Model.m.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.m.Phone" class="control-label"></label>
+        <input asp-for="@Model.m.Phone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.m.Email" class="control-label"></label>
+        <input asp-for="@Model.m.Email" class="form-control" />
+    </div>
+    
+
+    <div class="formgroup">
+        <td><a asp-page="MemberPAge" asp-route-id="@Model.m">Edit</a></td>
+    </div>
+</form>
+
+
+
