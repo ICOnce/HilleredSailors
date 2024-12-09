@@ -11,20 +11,25 @@ namespace HilleredSailors.Pages.Bookings
         public IBookingRepository bookingRepository;
         [BindProperty]
         public Booking Booking { get; set; }
+      
         public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo) { 
             boatRepository = BRepo;
             bookingRepository = BORepo;
         }
         public void OnGet(string SailNumber)
         {
-            Booking = new Booking(boatRepository.GetBoat(SailNumber));
-
+            Booking = new Booking();
+            IBoat b= boatRepository.GetBoat(SailNumber); 
+            Booking.AddBoat(boatRepository.GetBoat(SailNumber));
+            Booking.Boat = b;
         }
 
         public IActionResult OnPost() {
-            if (bookingRepository.BookingPossible(Booking)) { 
-                
+            if (bookingRepository.BookingPossible(Booking)) {
+                bookingRepository.ABooking(Booking);
+                return Redirect("/Index");
             }
+            return Redirect("MakeBooking");
         }
     }
 }

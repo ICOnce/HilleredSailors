@@ -20,12 +20,13 @@ namespace BoatLibrary.Repos
             Bookings.Add(booking);
         }
 
-        public bool BookingPossible(Booking book)
+        public bool BookingPossible(IBooking book)
         {
             foreach (IBooking booking in Bookings) {
-                if (booking.GetBoats().Contains(book.GetBoats()[0]) ) {
-                    if (booking.StartTime < book.StartTime && booking.EndTime > book.StartTime) return false;
-                    if (booking.StartTime < book.EndTime && booking.EndTime > book.EndTime) return false;
+                if (booking.GetBoats().Contains(book.Boat) ) {
+
+                    if (booking.StartTime <= book.StartTime && booking.EndTime >= book.StartTime) return false;
+                    if (booking.StartTime <= book.EndTime && booking.EndTime >= book.EndTime) return false;
                 }
             }
             return true;
@@ -38,7 +39,7 @@ namespace BoatLibrary.Repos
 
         public IBooking GetBookingByMember(IMember m)
         {
-            foreach (IBooking b in Bookings) { 
+            foreach (Booking b in Bookings) { 
                 if (b.Booker == m)
                     return b;
             }
@@ -53,5 +54,7 @@ namespace BoatLibrary.Repos
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }

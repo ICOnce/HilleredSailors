@@ -24,9 +24,9 @@
         {
             <tr>
                 <td>@item.Booker</td>
-                <td>@item.Boats</td>
-                <td><a asp-page="EditBooking" asp-route-editBoat="@item.Boats">Edit</a></td>
-                <td><a asp-page="DeleteBooking" asp-route-deleteBoat="@item.Boats">Delete</a></td>
+                <td>@item.GetBoats()[0]</td>
+                <td><a asp-page="EditBooking" asp-route-editBoat="@item.GetBoats()[0]">Edit</a></td>
+                <td><a asp-page="DeleteBooking" asp-route-deleteBoat="@item.GetBoats()[0]">Delete</a></td>
                 @* <td><a asp-page="DeleteCustomer" asp-route-deleteId="@item.Id">Delete</a></td> *@
             </tr>
         }
