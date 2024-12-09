@@ -59,6 +59,11 @@ namespace BoatLibrary.Repos
         {
             throw new NotImplementedException();
         }
+
+        public bool BookingPossible(IBooking book)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

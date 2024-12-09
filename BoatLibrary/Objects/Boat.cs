@@ -20,7 +20,7 @@ public class Boat : IBoat
 
     public int Width { get; set; }
 
-    public Dictionary<DateTime, bool> Calender { get;  }
+    public Dictionary<DateTime, bool> Calender { get; }
     public ILog Log { get; }
     #endregion
 }
