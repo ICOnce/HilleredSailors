@@ -1,4 +1,5 @@
 ﻿using BoatLibrary.Interfaces;
+using BoatLibrary.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,12 @@ namespace BoatLibrary.Repos
             Bookings.Add(booking);
         }
 
-        public bool BookingPossible(DateTime start, DateTime end, IBoat boat)
+        public bool BookingPossible(Booking book)
         {
             foreach (IBooking booking in Bookings) {
-                if (booking.Boats.Contains(boat) ) {
-                    if (booking.StartTime < start && booking.EndTime > start) return false;
-                    if (booking.StartTime < end && booking.EndTime > end) return false;
+                if (booking.GetBoats().Contains(book.GetBoats()[0]) ) {
+                    if (booking.StartTime < book.StartTime && booking.EndTime > book.StartTime) return false;
+                    if (booking.StartTime < book.EndTime && booking.EndTime > book.EndTime) return false;
                 }
             }
             return true;
