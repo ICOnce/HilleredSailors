@@ -9,9 +9,11 @@ namespace BoatLibrary.Repos
 {
     public class BookkingRepository : IBookingRepository
     {
-        public List<IBooking> Bookings { get; private set;}
+        private List<IBooking> Bookings;
         public int Count { get { return Bookings.Count; } }
-
+        public BookkingRepository() { 
+            Bookings = new List<IBooking>();
+        }
         public void ABooking(IBooking booking)
         {
             Bookings.Add(booking);

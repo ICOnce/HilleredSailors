@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BoatLibrary.Objects
 {
-    internal class Booking : IBooking
+    public class Booking : IBooking
     {
         public DateTime StartTime { get; set ; }
         public DateTime EndTime { get ; set ; }

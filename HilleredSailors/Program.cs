@@ -1,9 +1,14 @@
 
+using BoatLibrary.Interfaces;
+using BoatLibrary.Repos;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IMemberRepository, MemberRepo>();
+builder.Services.AddSingleton<IBoatRepository, BoatRepo>();
+builder.Services.AddSingleton<IBookingRepository, BookkingRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

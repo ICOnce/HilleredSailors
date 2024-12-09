@@ -7,17 +7,17 @@ using BoatLibrary.Interfaces;
 
 public class Boat : IBoat
 {
-    public string Model { get; }
+    public string Model { get; set; }
 
     public string Name { get; set; }
 
-    public string SailNumber { get; }
+    public string SailNumber { get; set; }
 
     public string MotorInfo { get; set; }
 
-    public int Length { get; }
+    public int Length { get; set; }
 
-    public int Width { get; }
+    public int Width { get; set; }
 
     public Dictionary<DateTime, bool> Calender { get;  }
     public ILog Log { get; }

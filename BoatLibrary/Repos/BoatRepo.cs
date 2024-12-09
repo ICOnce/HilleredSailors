@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class BoatRepo : IBoatRepository
 {
-    public List<IBoat> Boats;
+    private List<IBoat> Boats;
 
     
     public int Count { get { return Boats.Count; } }

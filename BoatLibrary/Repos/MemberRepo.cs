@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class MemberRepo : IMemberRepository
 {
-    public List<IMember> MemberList;
+    private List<IMember> MemberList;
     public int MemberCount { get { return MemberList.Count; } }
 
     public MemberRepo() { 

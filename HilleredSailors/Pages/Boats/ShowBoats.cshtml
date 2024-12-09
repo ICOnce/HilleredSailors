@@ -1,0 +1,34 @@
+﻿@page
+@model HilleredSailors.Pages.Boats.ShowBoatsModel
+@{
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Name</th>
+            <th>SailNumber</th>
+            <th>MortorInfo</th>
+            <th>Length</th>
+            <th>Width</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (IBoat item in Model.BRepo.GetAll())
+        {
+            <tr>
+                <td>@item.Model</td>
+                <td>@item.Name</td>
+                <td>@item.SailNumber</td>
+                <td>@item.MotorInfo</td>
+                <td>@item.Length</td>
+                <td>@item.Width</td>
+                <td><a asp-page="EditCustomer" asp-route-id="@item.SailNumber">Edit</a></td>
+                <td><a asp-page="DeleteCustomer" asp-route-deleteMobile="@item.SailNumber">Delete</a></td>
+                <td><a asp-page="/Bookings/MakeBooking" asp-route-SailNumber="@item.SailNumber">Book</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
