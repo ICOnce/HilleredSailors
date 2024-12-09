@@ -11,28 +11,30 @@ namespace BoatLibrary.Repos
     public class BookkingRepository : IBookingRepository
     {
         #region Instances
-        private List<IBooking> Bookings;
+        private List<IBooking> _bookings;
         #endregion
 
         #region Properties
-        public int Count { get { return Bookings.Count; } }
+        public int Count { get { return _bookings.Count; } }
         #endregion
 
         #region Constructor
         public BookkingRepository() { 
-            Bookings = new List<IBooking>();
+            _bookings = new List<IBooking>();
         }
         #endregion
 
         #region Methods
         public void ABooking(IBooking booking)
         {
-            Bookings.Add(booking);
+            _bookings.Add(booking);
         }
         public bool BookingPossible(Booking book)
         {
-            foreach (IBooking booking in Bookings) {
-                if (booking.GetBoats().Contains(book.GetBoats()[0]) ) {
+            foreach (IBooking booking in _bookings) 
+            {
+                if (booking.GetBoats().Contains(book.GetBoats()[0]) ) 
+                {
                     if (booking.StartTime < book.StartTime && booking.EndTime > book.StartTime) return false;
                     if (booking.StartTime < book.EndTime && booking.EndTime > book.EndTime) return false;
                 }
@@ -41,19 +43,22 @@ namespace BoatLibrary.Repos
         }
         public List<IBooking> GetAll()
         {
-            return Bookings;
+            return _bookings;
         }
         public IBooking GetBookingByMember(IMember m)
         {
-            foreach (IBooking b in Bookings) { 
+            foreach (IBooking b in _bookings) 
+            {
                 if (b.Booker == m)
+                {
                     return b;
+                }
             }
             return null;
         }
         public void DeleteBooking(IBooking booking)
         {
-            Bookings.Remove(booking);
+            _bookings.Remove(booking);
         }
         public string Tostring()
         {

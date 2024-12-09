@@ -9,11 +9,11 @@ public class Member : IMember
 {
     #region Instances
     static int counter = 0;
-    private int id;
+    private int _id;
     #endregion
 
     #region Properties
-    public int Id { get { return id; } }
+    public int Id { get { return _id; } }
     public string Phone { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
@@ -25,14 +25,14 @@ public class Member : IMember
     public Member() {
         Type = MemberType.MemberTypes.member;
         counter++;
-        id = counter;
+        _id = counter;
     }
     // parameterised constructor
     public Member(MemberType.MemberTypes type)
     {
         Type = type;
         counter++;
-        id = counter;
+        _id = counter;
     }
     #endregion
 

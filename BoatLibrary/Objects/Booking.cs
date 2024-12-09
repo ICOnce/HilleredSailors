@@ -10,7 +10,7 @@ namespace BoatLibrary.Objects
     public class Booking : IBooking
     {
         #region Instances
-        private List<IBoat> Boats = new List<IBoat>();
+        private List<IBoat> _boats = new List<IBoat>();
         #endregion
 
         #region Properties
@@ -21,22 +21,22 @@ namespace BoatLibrary.Objects
 
         #region Constructor
         public Booking(IBoat boat) {
-            Boats.Add(boat);
+            _boats.Add(boat);
         }
         #endregion
 
         #region Methods
         public void AddBoat(IBoat boat)
         {
-            Boats.Add(boat);
+            _boats.Add(boat);
         }
         public void DeleteBoat(IBoat boat)
         {
-            Boats.Remove(boat);
+            _boats.Remove(boat);
         }
         public IBoat GetBoat(string sailNumber)
         {
-            foreach (var b in Boats) {
+            foreach (var b in _boats) {
                 if (b.SailNumber==sailNumber) {
                     return b;
                 }
@@ -45,7 +45,7 @@ namespace BoatLibrary.Objects
         }
         public List<IBoat> GetBoats()
         {
-            return Boats;
+            return _boats;
         }
         #endregion
     }
