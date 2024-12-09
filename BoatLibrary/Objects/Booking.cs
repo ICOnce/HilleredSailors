@@ -13,7 +13,11 @@ namespace BoatLibrary.Objects
         public DateTime EndTime { get ; set ; }
         public IMember Booker { get ; set ; }
 
-        public List<IBoat> Boats { get; }
+        private List<IBoat> Boats=new List<IBoat>();
+
+        public Booking(IBoat boat) {
+            Boats.Add(boat);
+        }
 
         public void AddBoat(IBoat boat)
         {
