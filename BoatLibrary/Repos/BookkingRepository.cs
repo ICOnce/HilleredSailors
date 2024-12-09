@@ -19,7 +19,8 @@ namespace BoatLibrary.Repos
         #endregion
 
         #region Constructor
-        public BookkingRepository() { 
+        public BookkingRepository() 
+        { 
             _bookings = new List<IBooking>();
         }
         #endregion

@@ -7,24 +7,38 @@ namespace HilleredSailors.Pages.Bookings
 {
     public class MakeBookingModel : PageModel
     {
-        public IBoatRepository boatRepository;
-        public IBookingRepository bookingRepository;
+        #region Instances
+        private IBoatRepository _boatRepository;
+        private IBookingRepository _bookingRepository;
+        #endregion
+
+        #region Properties
         [BindProperty]
         public Booking Booking { get; set; }
-        public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo) { 
-            boatRepository = BRepo;
-            bookingRepository = BORepo;
+        #endregion
+
+        #region Constructor
+        public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo) 
+        { 
+            _boatRepository = BRepo;
+            _bookingRepository = BORepo;
         }
+        #endregion
+
+        #region Methods
         public void OnGet(string SailNumber)
         {
-            Booking = new Booking(boatRepository.GetBoat(SailNumber));
+            Booking = new Booking(_boatRepository.GetBoat(SailNumber));
 
         }
-
-        public IActionResult OnPost() {
-            if (bookingRepository.BookingPossible(Booking)) { 
-                
+        public IActionResult OnPost() 
+        {
+            if (_bookingRepository.BookingPossible(Booking)) 
+            {
+                return null;
             }
+            return null;
         }
+        #endregion
     }
 }

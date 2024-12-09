@@ -29,7 +29,7 @@ public class MemberRepo : IMemberRepository
     {
         foreach (var member in _memberList) 
         {
-            if (member.Id==id) 
+            if (member.Id == id) 
             {
                 _memberList.Remove(member);
                 return;
