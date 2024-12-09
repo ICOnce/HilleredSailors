@@ -11,6 +11,5 @@ public interface IMember
     string Name { get; set; }
     string Email { get; set; }
     MemberType.MemberTypes Type { get; set; }
-
     String ToString();
 }

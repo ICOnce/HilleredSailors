@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 public interface IEventRepository
 {
     int EventCount { get; }
-
     IClubEvent GetEvent(DateTime dateTime);
     string ToString();
 }

@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 public class MemberType
 {
-    public enum MemberTypes {admin,member,chairMan };
+    public enum MemberTypes { admin, member, chairMan };
 }
 

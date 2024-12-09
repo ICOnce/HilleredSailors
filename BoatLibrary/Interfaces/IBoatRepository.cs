@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 public interface IBoatRepository
 {
-    public int Count { get;}
-
+    public int Count { get; }
     public IBoat GetBoat(string sailNumber);
     public List<IBoat> GetAll();
     public void AddBoat(IBoat boat);
     public void DeleteBoat(string sailNumber);
     public void UpdateBoat(IBoat boat, string sailNumber);
-
-
-
 }
 

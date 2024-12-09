@@ -7,6 +7,7 @@ using BoatLibrary.Interfaces;
 
 public class Boat : IBoat
 {
+    #region Properties
     public string Model { get; set; }
 
     public string Name { get; set; }
@@ -21,5 +22,6 @@ public class Boat : IBoat
 
     public Dictionary<DateTime, bool> Calender { get;  }
     public ILog Log { get; }
+    #endregion
 }
 

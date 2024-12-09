@@ -10,16 +10,25 @@ namespace BoatLibrary.Repos
 {
     public class BookkingRepository : IBookingRepository
     {
+        #region Instances
         private List<IBooking> Bookings;
+        #endregion
+
+        #region Properties
         public int Count { get { return Bookings.Count; } }
+        #endregion
+
+        #region Constructor
         public BookkingRepository() { 
             Bookings = new List<IBooking>();
         }
+        #endregion
+
+        #region Methods
         public void ABooking(IBooking booking)
         {
             Bookings.Add(booking);
         }
-
         public bool BookingPossible(Booking book)
         {
             foreach (IBooking booking in Bookings) {
@@ -30,12 +39,10 @@ namespace BoatLibrary.Repos
             }
             return true;
         }
-
         public List<IBooking> GetAll()
         {
             return Bookings;
         }
-
         public IBooking GetBookingByMember(IMember m)
         {
             foreach (IBooking b in Bookings) { 
@@ -48,10 +55,10 @@ namespace BoatLibrary.Repos
         {
             Bookings.Remove(booking);
         }
-
         public string Tostring()
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }

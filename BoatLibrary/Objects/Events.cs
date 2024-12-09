@@ -8,5 +8,20 @@ namespace BoatLibrary.Objects
 {
     public class Events
     {
+        #region Instances
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Constructor
+
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
 }

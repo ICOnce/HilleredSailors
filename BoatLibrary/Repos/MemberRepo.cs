@@ -6,17 +6,25 @@ using System.Threading.Tasks;
 
 public class MemberRepo : IMemberRepository
 {
+    #region Instances
     private List<IMember> MemberList;
-    public int MemberCount { get { return MemberList.Count; } }
+    #endregion
 
+    #region Properties
+    public int MemberCount { get { return MemberList.Count; } }
+    #endregion
+
+    #region Constructor
     public MemberRepo() { 
         MemberList = new List<IMember>();
     }
+    #endregion
+
+    #region Methods
     public void AddMember(IMember member)
     {
         MemberList.Add(member);
     }
-
     public void DeleteMember(int id)
     {
         foreach (var member in MemberList) {
@@ -26,12 +34,10 @@ public class MemberRepo : IMemberRepository
             }
         }
     }
-
     public List<IMember> GetAll()
     {
         return MemberList;
     }
-
     public IMember GetMember(int id)
     {
         foreach (var member in MemberList) {
@@ -39,7 +45,6 @@ public class MemberRepo : IMemberRepository
         }
         return null;
     }
-
     public void UpdateMember(int ID, IMember member)
     {
         foreach (var m in MemberList)
@@ -50,5 +55,6 @@ public class MemberRepo : IMemberRepository
             }
         }
     }
+    #endregion
 }
 

@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 
 public class BoatRepo : IBoatRepository
 {
+    #region Instances
     private List<IBoat> Boats;
+    #endregion
 
-    
+    #region Properties
     public int Count { get { return Boats.Count; } }
+    #endregion
 
+    #region Constructor
     public BoatRepo() { 
         Boats = new List<IBoat>();
     }
+    #endregion
+
+    #region Methods
     public void AddBoat(IBoat boat)
     {
         Boats.Add(boat);
     }
-
     public void DeleteBoat(string sailNumber)
     {
         foreach (var b in Boats) {
@@ -28,12 +34,10 @@ public class BoatRepo : IBoatRepository
             }
         }
     }
-
     public List<IBoat> GetAll()
     {
         return Boats;
     }
-
     public IBoat GetBoat(string sailNumber)
     {
         foreach (var b in Boats)
@@ -45,7 +49,6 @@ public class BoatRepo : IBoatRepository
         }
             return null;
     }
-
     public void UpdateBoat(IBoat boat, string sailNumber)
     {
         foreach (var b in Boats)
@@ -58,4 +61,5 @@ public class BoatRepo : IBoatRepository
             }
         }
     }
+    #endregion
 }

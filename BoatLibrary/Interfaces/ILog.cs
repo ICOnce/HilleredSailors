@@ -9,7 +9,6 @@ public interface ILog
     public interface ILog
     {
         int EntryCount { get; }
-
         void AddEntry(string entry);
         string GetEntry(int id);
         List<string> GetAll();
