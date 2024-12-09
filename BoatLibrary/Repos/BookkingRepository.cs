@@ -39,9 +39,14 @@ namespace BoatLibrary.Repos
         public IBooking GetBookingByMember(IMember m)
         {
             foreach (IBooking b in Bookings) { 
-                if(b.Booker==m)return b;
+                if (b.Booker == m)
+                    return b;
             }
             return null;
+        }
+        public void DeleteBooking(IBooking booking)
+        {
+            Bookings.Remove(booking);
         }
 
         public string Tostring()
