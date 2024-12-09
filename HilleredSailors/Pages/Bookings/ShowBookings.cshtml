@@ -1,4 +1,34 @@
 ﻿@page
+@using BoatLibrary.Objects;
 @model HilleredSailors.Pages.Bookings.ShowBookingsModel
 @{
+    ViewData["Title"] = "ShowBookings";
 }
+
+<h1>Bookings</h1>
+
+<p>
+    <a asp-page="Booking">Book a boat</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Boat</th>
+            <th>Time Slot</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Booking item in Model.Bookings)
+        {
+            <tr>
+                <td>@item.Booker</td>
+                <td>@item.Boats</td>
+                <td><a asp-page="EditBooking" asp-route-editBoat="@item.Boats">Edit</a></td>
+                <td><a asp-page="DeleteBooking" asp-route-deleteBoat="@item.Boats">Delete</a></td>
+                @* <td><a asp-page="DeleteCustomer" asp-route-deleteId="@item.Id">Delete</a></td> *@
+            </tr>
+        }
+    </tbody>
+</table>
