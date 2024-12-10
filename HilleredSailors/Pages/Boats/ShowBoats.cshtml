@@ -2,6 +2,20 @@
 @model HilleredSailors.Pages.Boats.ShowBoatsModel
 @{
 }
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.StartTime" class="control-label"></label>
+        <input asp-for="@Model.StartTime" class="form-control" required="true" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.EndTime" class="control-label"></label>
+        <input asp-for="@Model.EndTime" class="form-control" required="true" />
+    </div>
+
+    <div class="formgroup">
+        <input type="submit" value="Find available" class="btn btn-primary" />
+    </div>
+</form>
 
 <table class="table">
     <thead>
@@ -16,7 +30,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (IBoat item in Model.BRepo.GetAll())
+        @foreach (IBoat item in Model.BoatList)
         {
             <tr>
                 <td>@item.Model</td>
@@ -27,7 +41,10 @@
                 <td>@item.Width</td>
                 <td><a asp-page="EditCustomer" asp-route-id="@item.SailNumber">Edit</a></td>
                 <td><a asp-page="DeleteCustomer" asp-route-deleteMobile="@item.SailNumber">Delete</a></td>
-                <td><a asp-page="/Bookings/MakeBooking" asp-route-sailNumber="@item.SailNumber">Book</a></td>
+                <td><a asp-page="/Bookings/MakeBooking" 
+                    asp-route-startTime="@Model.StartTime.ToString()" 
+                    asp-route-sailNumber="@item.SailNumber" 
+                    asp-route-endTime="@Model.EndTime.ToString()">Book</a></td>
             </tr>
         }
     </tbody>

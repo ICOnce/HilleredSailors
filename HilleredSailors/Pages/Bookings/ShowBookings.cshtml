@@ -14,19 +14,22 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Name</th>
+            <th>Member</th>
             <th>Boat</th>
-            <th>Time Slot</th>
+            <th>Start time</th>
+            <th>End time</th>
         </tr>
     </thead>
     <tbody>
         @foreach (Booking item in Model.Bookings)
         {
             <tr>
-                <td>@item.Booker</td>
-                <td>@item.GetBoats()[0]</td>
-                <td><a asp-page="EditBooking" asp-route-editBoat="@item.GetBoats()[0]">Edit</a></td>
-                <td><a asp-page="DeleteBooking" asp-route-deleteBoat="@item.GetBoats()[0]">Delete</a></td>
+                <td>@item.Booker.Name</td>
+                <td>@item.Boat.SailNumber</td>
+                <td>@item.StartTime</td>
+                <td>@item.EndTime</td>
+                <td><a asp-page="EditBooking" asp-route-editBoat="@item">Edit</a></td>
+                <td><a asp-page="DeleteBooking" asp-route-deleteBoat="@item">Delete</a></td>
                 @* <td><a asp-page="DeleteCustomer" asp-route-deleteId="@item.Id">Delete</a></td> *@
             </tr>
         }
