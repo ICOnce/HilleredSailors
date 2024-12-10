@@ -16,7 +16,5 @@ namespace BoatLibrary.Interfaces
         public void DeleteBoat(IBoat boat);
 
         public List<IBoat> GetBoats();
-
-
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BoatLibrary.Objects
+namespace BoatLibrary.Repos
 {
-    public class Log : ILog
+    public class EventRepo
     {
         #region Instances
 

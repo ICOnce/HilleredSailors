@@ -12,6 +12,5 @@ public interface IClubEvent
     List<Member> GetParticipants();
     void ChangeTime(DateTime newTime);
     string ToString();
-
 }
 

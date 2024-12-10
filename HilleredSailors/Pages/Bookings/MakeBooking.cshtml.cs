@@ -37,5 +37,6 @@ namespace HilleredSailors.Pages.Bookings
             ValidBook = false;
             return Page();
         }
+        #endregion
     }
 }

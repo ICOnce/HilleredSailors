@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoatLibrary.Objects
 {
-    public class Log : ILog
+    public class Events
     {
         #region Instances
 

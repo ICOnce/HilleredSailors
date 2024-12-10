@@ -15,6 +15,5 @@ namespace BoatLibrary.Interfaces
         public IBooking GetBookingByMember(IMember m);
         public bool BookingPossible(IBooking book);
         public string Tostring();
-
     }
 }
