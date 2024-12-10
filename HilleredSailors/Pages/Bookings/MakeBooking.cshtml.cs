@@ -9,6 +9,7 @@ namespace HilleredSailors.Pages.Bookings
     {
         public IBoatRepository boatRepository;
         public IBookingRepository bookingRepository;
+        public bool ValidBook { get; set; } = false;
         public string Scuffed { get; set; }
         [BindProperty]
         public Booking Booking { get; set; }
@@ -27,6 +28,7 @@ namespace HilleredSailors.Pages.Bookings
         }
 
         public IActionResult OnPost() {
+
             if (bookingRepository.BookingPossible(Booking)) {
                 bookingRepository.ABooking(Booking);
                 ValidBook = true;
