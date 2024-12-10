@@ -17,10 +17,6 @@ namespace HilleredSailors.Pages.Bookings
         public string SailNumber { get; set; }
       
         public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo) {
-            if (Booking == null)
-            {
-                Booking = new Booking();
-            }
             boatRepository = BRepo;
             bookingRepository = BORepo;
         }
@@ -28,15 +24,6 @@ namespace HilleredSailors.Pages.Bookings
         public void OnGet(string sailNumber)
         {
             SailNumber = sailNumber;
-            Booking.AddBoat(boatRepository.GetBoat(SailNumber));
-            Booking.Boat = b;
-            Booking.AddBoat(boatRepository.GetBoat(SailNumber));
-            Booking.Boat = b;
-            Booking.AddBoat(boatRepository.GetBoat(SailNumber));
-            IBoat b = boatRepository.GetBoat(SailNumber);
-            Booking.AddBoat(boatRepository.GetBoat(SailNumber));
-            Booking.Boat = b;
-            Booking.Boat = b;
         }
 
         public IActionResult OnPost() {
