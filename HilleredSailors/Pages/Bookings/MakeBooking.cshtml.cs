@@ -9,6 +9,8 @@ namespace HilleredSailors.Pages.Bookings
     {
         public IBoatRepository boatRepository;
         public IBookingRepository bookingRepository;
+
+        public bool ValidBook { get; private set; } = true;
         [BindProperty]
         public Booking Booking { get; set; }
 
@@ -16,10 +18,6 @@ namespace HilleredSailors.Pages.Bookings
         public string SailNumber { get; set; }
       
         public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo) {
-            if (Booking == null)
-            {
-                Booking = new Booking();
-            }
             boatRepository = BRepo;
             bookingRepository = BORepo;
         }
@@ -35,10 +33,11 @@ namespace HilleredSailors.Pages.Bookings
             Booking.Boat = b;
             if (bookingRepository.BookingPossible(Booking)) {
                 bookingRepository.ABooking(Booking);
+                ValidBook = true;
                 return Redirect("/Index");
             }
-            SailNumber = Booking.Boat.SailNumber;
-            return Redirect("MakeBooking");
+            ValidBook = false;
+            return Page();
         }
     }
 }
