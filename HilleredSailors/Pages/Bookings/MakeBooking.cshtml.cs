@@ -29,10 +29,11 @@ namespace HilleredSailors.Pages.Bookings
         public IActionResult OnPost() {
             if (bookingRepository.BookingPossible(Booking)) {
                 bookingRepository.ABooking(Booking);
+                ValidBook = true;
                 return Redirect("/Index");
             }
-            SailNumber = Booking.Boat.SailNumber;
-            return Redirect("MakeBooking");
+            ValidBook = false;
+            return Page();
         }
     }
 }
