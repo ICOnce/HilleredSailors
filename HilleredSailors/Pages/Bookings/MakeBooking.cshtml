@@ -6,18 +6,31 @@
 
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
+        <label asp-for="@Model.SailNumber" class="control-label"></label>
+        <input asp-for="@Model.SailNumber" class="form-control" readonly="true" />
+    </div>
+    <div class="form-group">
         <label asp-for="@Model.Booking.StartTime" class="control-label"></label>
-        <input asp-for="@Model.Booking.StartTime" class="form-control" />
+        <input asp-for="@Model.Booking.StartTime" class="form-control" required="true"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Booking.EndTime" class="control-label"></label>
-        <input asp-for="@Model.Booking.EndTime" class="form-control" />
+        <input asp-for="@Model.Booking.EndTime" class="form-control" required="true"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Booking.Booker.Name" class="control-label"></label>
-        <input asp-for="@Model.Booking.Booker.Name" class="form-control" />
+        <input asp-for="@Model.Booking.Booker.Name" class="form-control" required="true"/>
     </div>
     <div class="formgroup">
         <input type="submit" value="Create Customer" class="btn btn-primary" />
     </div>
-</form>s
+    @{
+        if (!Model.ValidBook)
+        {
+            <p></p>
+            <div class="formgroup">
+                <label class="alert-danger">Invalid Booking</label>
+            </div>
+        }
+    }
+</form>

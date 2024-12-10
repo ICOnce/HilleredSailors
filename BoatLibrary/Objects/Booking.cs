@@ -16,12 +16,12 @@ namespace BoatLibrary.Objects
         #region Properties
         public DateTime StartTime { get; set ; }
         public DateTime EndTime { get ; set ; }
-        public IMember Booker { get ; set ; }
-        #endregion
+        public IBoat Boat { get; set ; }
+        public Member Booker { get; set ; }
 
-        #region Constructor
-        public Booking(IBoat boat) {
-            _boats.Add(boat);
+        private List<IBoat> Boats=new List<IBoat>();
+
+        public Booking() {
         }
         #endregion
 

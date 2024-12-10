@@ -10,10 +10,11 @@ namespace BoatLibrary.Interfaces
     {
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public IMember Booker { get; set; }
+        public IBoat Boat { get; set; }
         public void AddBoat(IBoat boat);
         public IBoat GetBoat(string sailNumber);
         public void DeleteBoat(IBoat boat);
+
         public List<IBoat> GetBoats();
     }
 }

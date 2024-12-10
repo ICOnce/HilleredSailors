@@ -27,7 +27,7 @@
                 <td>@item.Width</td>
                 <td><a asp-page="EditCustomer" asp-route-id="@item.SailNumber">Edit</a></td>
                 <td><a asp-page="DeleteCustomer" asp-route-deleteMobile="@item.SailNumber">Delete</a></td>
-                <td><a asp-page="/Bookings/MakeBooking" asp-route-SailNumber="@item.SailNumber">Book</a></td>
+                <td><a asp-page="/Bookings/MakeBooking" asp-route-sailNumber="@item.SailNumber">Book</a></td>
             </tr>
         }
     </tbody>
