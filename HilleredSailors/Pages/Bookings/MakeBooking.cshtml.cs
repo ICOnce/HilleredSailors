@@ -9,6 +9,7 @@ namespace HilleredSailors.Pages.Bookings
     {
         public IBoatRepository boatRepository;
         public IBookingRepository bookingRepository;
+        public string Scuffed { get; set; }
         [BindProperty]
         public Booking Booking { get; set; }
       
@@ -18,13 +19,13 @@ namespace HilleredSailors.Pages.Bookings
         }
         public void OnGet(string SailNumber)
         {
-            Booking = new Booking();
-            IBoat b= boatRepository.GetBoat(SailNumber); 
-            Booking.AddBoat(boatRepository.GetBoat(SailNumber));
-            Booking.Boat = b;
+            Scuffed = SailNumber;
+            
         }
 
         public IActionResult OnPost() {
+            Booking = new Booking();
+            Booking.Boat = (boatRepository.GetBoat(Scuffed));
             if (bookingRepository.BookingPossible(Booking)) {
                 bookingRepository.ABooking(Booking);
                 return Redirect("/Index");
