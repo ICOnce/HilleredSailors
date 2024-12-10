@@ -33,7 +33,7 @@ namespace BoatLibrary.Repos
 
         public bool BookingPossible(IBooking book)
         {
-            foreach (IBooking booking in Bookings) {
+            foreach (IBooking booking in _bookings) {
                 if (booking.GetBoats().Contains(book.Boat) ) {
 
                     if (booking.StartTime <= book.StartTime && booking.EndTime >= book.StartTime) return false;
@@ -48,7 +48,7 @@ namespace BoatLibrary.Repos
         }
         public IBooking GetBookingByMember(IMember m)
         {
-            foreach (Booking b in Bookings) { 
+            foreach (Booking b in _bookings) { 
                 if (b.Booker == m)
                 {
                     return b;
@@ -65,11 +65,9 @@ namespace BoatLibrary.Repos
             throw new NotImplementedException();
         }
 
-        public bool BookingPossible(IBooking book)
-        {
-            throw new NotImplementedException();
-        }
+       
 
        
     }
 }
+#endregion
