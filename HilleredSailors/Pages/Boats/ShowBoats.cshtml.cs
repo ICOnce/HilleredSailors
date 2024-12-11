@@ -33,7 +33,7 @@ namespace HilleredSailors.Pages.Boats
 
         public IActionResult OnPost()
         {
-            BoatList = new List<IBoat>();
+            BoatList = BRepo.GetAll();
             Booking booking = new Booking();
             booking.StartTime = StartTime;
             booking.EndTime = EndTime;
