@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoatLibrary.Objects;
 
 namespace BoatLibrary.Interfaces
 {
@@ -12,7 +13,7 @@ namespace BoatLibrary.Interfaces
         public List<IBooking> GetAll();
         public void ABooking(IBooking booking);
         public void DeleteBooking(IBooking booking);
-        public IBooking GetBookingByMember(IMember m);
+        public Booking GetBookingByMember(IMember m);
         public bool BookingPossible(IBooking book);
         public string Tostring();
     }

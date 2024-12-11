@@ -36,7 +36,9 @@ public class BoatRepo : IBoatRepository
     }
     public List<IBoat> GetAll()
     {
-        return _boats;
+        IBoat[] temp = new IBoat[_boats.Count];
+        _boats.CopyTo(temp,0);
+        return temp.ToList();
     }
     public IBoat GetBoat(string sailNumber)
     {

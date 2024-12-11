@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using BoatLibrary.Interfaces;
 using BoatLibrary.Objects;
 using BoatLibrary.Repos;
+using System.Collections.Generic;
 
 namespace HilleredSailors.Pages.Boats
 {
@@ -23,7 +24,6 @@ namespace HilleredSailors.Pages.Boats
         public ShowBoatsModel(IBoatRepository br, IBookingRepository bookingRepo) { 
             BRepo = br;
             BookingRepo = bookingRepo;
-            BoatList = new List<IBoat>();
             BoatList = BRepo.GetAll();
         }
 

@@ -46,7 +46,7 @@ namespace BoatLibrary.Repos
         {
             return _bookings;
         }
-        public IBooking GetBookingByMember(IMember m)
+        public Booking GetBookingByMember(IMember m)
         {
             foreach (Booking b in _bookings) { 
                 if (b.Booker == m)
