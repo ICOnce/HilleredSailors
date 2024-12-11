@@ -10,12 +10,10 @@
             asp-items="@Model.memberList">
     </select>
     <br />
-    <input type="submit" value="OnpostAddMember" />
+    <input type="submit" value="AddMember" />
     <br />
-    <form method="post" asp-asp-page-handler="Finnish">
-        <input type="submit" value="OnpostFinnish" />
-    </form>
-    
-    
 </form>
 
+<form method="post" asp-route-i="" asp-page-handler="Finnish">
+    <input type="submit" name="Finnish" value="1"  />
+</form>

@@ -16,7 +16,7 @@ namespace HilleredSailors.Pages.Events
         [BindProperty]
         public Event Event { get; set; }
 
-        public RegisterForEventsModel(IMemberRepository IMR, IEventRepository eventRepo )
+        public RegisterForEventsModel(IMemberRepository IMR, IEventRepository eventRepo)
         {
             memberRepo = IMR;
             memberList = new List<SelectListItem>();
@@ -34,10 +34,12 @@ namespace HilleredSailors.Pages.Events
 
         public void OnPostAddMember() {
             members.Add(memberRepo.GetMember(MemberID));
+            Console.WriteLine("no");
             Page();
         }
 
-        public IActionResult OnPostFinnish() {
+        public IActionResult OnPostFinnish(int i) {
+            
             foreach (IMember m in members) { 
                 Event.AddParticipant(m);
             }
