@@ -9,28 +9,32 @@ namespace HilleredSailors.Pages.Boats
 {
     public class ShowBoatsModel : PageModel
     {
+        #region Instances
         public IBoatRepository BRepo;
         public IBookingRepository BookingRepo;
-
         public List<IBoat> BoatList;
+        #endregion
 
+        #region Properties
         [BindProperty]
         public DateTime StartTime { get; set; }
 
         [BindProperty]
         public DateTime EndTime { get; set; }
+        #endregion
 
-
+        #region Constructor
         public ShowBoatsModel(IBoatRepository br, IBookingRepository bookingRepo) { 
             BRepo = br;
             BookingRepo = bookingRepo;
             BoatList = BRepo.GetAll();
         }
+        #endregion
 
+        #region Methods
         public void OnGet()
         {
         }
-
         public IActionResult OnPost()
         {
             BoatList = BRepo.GetAll();
@@ -45,5 +49,6 @@ namespace HilleredSailors.Pages.Boats
             }
             return Page();
         }
+        #endregion
     }
 }

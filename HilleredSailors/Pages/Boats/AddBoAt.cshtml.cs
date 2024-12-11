@@ -5,13 +5,22 @@ namespace HilleredSailors.Pages.Boats
 {
     public class AddBoAtModel : PageModel
     {
+        #region Instances
         public IBoatRepository BoatRepository;
         [BindProperty]
-        public Boat boat { get; set; }
+        #endregion
 
+        #region Properties
+        public Boat boat { get; set; }
+        #endregion
+
+        #region Constructor
         public AddBoAtModel(IBoatRepository bRepo) { 
             BoatRepository = bRepo;
         }
+        #endregion
+
+        #region Methods
         public void OnGet()
         {
         }
@@ -19,5 +28,6 @@ namespace HilleredSailors.Pages.Boats
             BoatRepository.AddBoat(boat);
             return RedirectToPage("/Index");
         }
+        #endregion
     }
 }
