@@ -19,6 +19,7 @@ namespace HilleredSailors.Pages.Boats
 
         public IActionResult OnPost()
         {
+            
             _boatRepository.UpdateBoat(Boat,Boat.SailNumber);
             return Redirect("ShowBoats");
         }

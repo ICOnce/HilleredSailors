@@ -1,4 +1,21 @@
 ﻿@page
 @model HilleredSailors.Pages.Events.RegisterForEventsModel
 @{
+    ViewData["Title"] = "RegisterForeEvents";
 }
+<form method="post" asp-page-handler="AddMember">
+    <label>Members</label>
+    <select id="MemberId" name="MemberId"
+            asp-for="@Model.MemberID"
+            asp-items="@Model.memberList">
+    </select>
+    <br />
+    <input type="submit" value="OnpostAddMember" />
+    <br />
+    <form method="post" asp-asp-page-handler="Finnish">
+        <input type="submit" value="OnpostFinnish" />
+    </form>
+    
+    
+</form>
+

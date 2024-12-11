@@ -9,6 +9,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IMemberRepository, MemberRepo>();
 builder.Services.AddSingleton<IBoatRepository, BoatRepo>();
 builder.Services.AddSingleton<IBookingRepository, BookkingRepository>();
+builder.Services.AddSingleton<IEventRepository, EventRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
