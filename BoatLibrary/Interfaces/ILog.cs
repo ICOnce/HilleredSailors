@@ -8,11 +8,11 @@ public interface ILog
 {
     public interface ILog
     {
-        int EntryCount { get; }
-        void AddEntry(string entry);
-        string GetEntry(int id);
-        List<string> GetAll();
-        String ToString();
+        public int EntryCount { get; }
+        public void AddEntry(string entry);
+        public string GetEntry(int id);
+        public List<string> GetAll();
+        public String ToString();
     }
 }
 
