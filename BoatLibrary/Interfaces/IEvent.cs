@@ -13,6 +13,5 @@ namespace BoatLibrary.Interfaces
         public DateTime Date { get; set; }
         public void AddParticipant(IMember Par);
         public void RemoveParticipant(IMember Par);
-        
     }
 }
