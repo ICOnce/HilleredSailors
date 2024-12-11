@@ -8,12 +8,12 @@ namespace HilleredSailors.Pages.Bookings
     public class DeleteBookingModel : PageModel
     {
         #region Instances
-        private IBookingRepository _repo;
+        public IBookingRepository _repo;
         #endregion
 
         #region Propeties
         [BindProperty]
-        public IBooking Booking { get; set; }
+        public Booking Booking { get; set; }
         #endregion
 
         #region Methods
