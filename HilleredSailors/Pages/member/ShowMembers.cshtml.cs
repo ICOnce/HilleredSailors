@@ -18,7 +18,5 @@ namespace HilleredSailors.Pages.member
         {
 
         }
-
-
     }
 }

@@ -13,7 +13,8 @@ namespace BoatLibrary.Interfaces
         public List<IBooking> GetAll();
         public void ABooking(IBooking booking);
         public void DeleteBooking(IBooking booking);
-        public Booking GetBookingByMember(IMember m);
+        public Booking GetBookingByMember(IMember member);
+        public Booking GetBookingByID(int ID);
         public bool BookingPossible(IBooking book);
         public string Tostring();
     }

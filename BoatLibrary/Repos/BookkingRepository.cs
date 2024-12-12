@@ -33,9 +33,10 @@ namespace BoatLibrary.Repos
 
         public bool BookingPossible(IBooking book)
         {
-            foreach (IBooking booking in _bookings) {
-                if (booking.GetBoats().Contains(book.Boat) ) {
-
+            foreach (IBooking booking in _bookings) 
+            {
+                if (booking.GetBoats().Contains(book.Boat) ) 
+                {
                     if (booking.StartTime <= book.StartTime && booking.EndTime >= book.StartTime) return false;
                     if (booking.StartTime <= book.EndTime && booking.EndTime >= book.EndTime) return false;
                 }
@@ -46,12 +47,24 @@ namespace BoatLibrary.Repos
         {
             return _bookings;
         }
-        public Booking GetBookingByMember(IMember m)
+        public Booking GetBookingByMember(IMember member)
         {
-            foreach (Booking b in _bookings) { 
-                if (b.Booker == m)
+            foreach (Booking booking in _bookings) 
+            { 
+                if (booking.Booker == member)
                 {
-                    return b;
+                    return booking;
+                }
+            }
+            return null;
+        }
+        public Booking GetBookingByID(int id)
+        {
+            foreach (Booking booking in _bookings)
+            {
+                if (booking.Id == id)
+                {
+                    return booking;
                 }
             }
             return null;
@@ -61,6 +74,11 @@ namespace BoatLibrary.Repos
             _bookings.Remove(booking);
         }
         public string Tostring()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Booking GetBookingByID(IMember ID)
         {
             throw new NotImplementedException();
         }

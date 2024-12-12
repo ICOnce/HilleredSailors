@@ -1,4 +1,22 @@
 ﻿@page
 @model HilleredSailors.Pages.Bookings.DeleteBookingModel
 @{
+    ViewData["Title"] = "DeleteBooking";
 }
+<h1>Delete Customer</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="@Model.Booking.Booker.Name" class="control-label"></label>
+                <input asp-for="@Model.Booking.Booker.Name" class="form-control" />
+            </div>
+            <div class="formgroup">
+                <input type="submit" value="Delete" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div>
+        <a asp-page="ShowBookings">Back to List</a>
+    </div>
+</div>
