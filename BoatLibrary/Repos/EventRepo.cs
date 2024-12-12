@@ -1,6 +1,8 @@
 ﻿using BoatLibrary.Interfaces;
+using BoatLibrary.Objects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +30,16 @@ namespace BoatLibrary.Repos
         public int EventCount { get { return events.Count; } }
         public EventRepo() { 
             events = new List<IEvent>();
+            IEvent e = new Event();
+            e.header = "Træning på søen";
+            e.Organizer = new Member();
+            e.Date = DateTime.Now;
+            e.Description = "Description";
+            events.Add(e);
+        }
+
+        public void AddEvent(IEvent e) { 
+            events.Add(e);
         }
 
         public void DeleteEvent(DateTime date)
@@ -63,5 +75,7 @@ namespace BoatLibrary.Repos
                 if (e.Date<DateTime.Now) events.Remove(e);
             }
         }
+
+       
     }
 }

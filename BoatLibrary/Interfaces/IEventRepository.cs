@@ -9,6 +9,7 @@ public interface IEventRepository
 {
     int EventCount { get; }
     IEvent GetEvent(DateTime date);
+    public void AddEvent(IEvent e);
     public void UpdateEvent();
     public void DeleteEvent(DateTime date);
     public List<IEvent> GetAll();
