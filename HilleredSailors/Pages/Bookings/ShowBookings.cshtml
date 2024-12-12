@@ -28,6 +28,7 @@
                 <td>@item.Boat.SailNumber</td>
                 <td>@item.StartTime</td>
                 <td>@item.EndTime</td>
+                <td><a asp-page="EditBooking" asp-route-editBookingstart="@item">Edit</a></td>
                 <td><a asp-page="DeleteBooking" asp-route-deleteBoat="@item">Delete</a></td>
                 @* <td><a asp-page="DeleteCustomer" asp-route-deleteId="@item.Id">Delete</a></td> *@
             </tr>

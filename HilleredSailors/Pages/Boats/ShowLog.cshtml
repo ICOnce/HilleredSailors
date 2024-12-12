@@ -1,0 +1,27 @@
+﻿@page
+@model HilleredSailors.Pages.Boats.AddToLogModel
+@{
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Name</th>
+            <th>SailNumber</th>
+            <th>MortorInfo</th>
+            <th>Length</th>
+            <th>Width</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (String s in Model.LogMessages)
+        {
+            <tr>
+                <td>@s</td>
+            </tr>
+        }
+    </tbody>
+</table>
