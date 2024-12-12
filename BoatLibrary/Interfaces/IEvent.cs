@@ -15,6 +15,5 @@ namespace BoatLibrary.Interfaces
         public string Description { get; set; }
         public string header { get; set; }
         public void RemoveParticipant(IMember Par);
-        
     }
 }

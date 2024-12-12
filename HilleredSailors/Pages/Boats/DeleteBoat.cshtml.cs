@@ -5,22 +5,30 @@ namespace HilleredSailors.Pages.Boats
 {
     public class DeleteBoatModel : PageModel
     {
+        #region Instances
         private IBoatRepository _boatRepository;
+        #endregion
+
+        #region Properties
         [BindProperty]
         public Boat Boat { get; set; }
+        #endregion
+
+        #region Constructor
         public DeleteBoatModel(IBoatRepository BRepo) { 
             _boatRepository = BRepo;
         }
+        #endregion
+
+        #region Methods
         public void OnGet(string SailNumber)
         {
-            Boat=(Boat)_boatRepository.GetBoat(SailNumber);
+            Boat = (Boat)_boatRepository.GetBoat(SailNumber);
         }
-
         public IActionResult OnPost() {
             _boatRepository.DeleteBoat(Boat.SailNumber);
             return Redirect("ShowBoats");
         }
-
-        
+        #endregion
     }
 }

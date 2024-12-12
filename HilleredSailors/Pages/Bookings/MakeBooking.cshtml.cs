@@ -7,9 +7,12 @@ namespace HilleredSailors.Pages.Bookings
 {
     public class MakeBookingModel : PageModel
     {
+        #region Instances
         public IBoatRepository boatRepository;
         public IBookingRepository bookingRepository;
+        #endregion
 
+        #region Properties
         public bool ValidBook { get; private set; } = true;
 
         [BindProperty]
@@ -23,20 +26,22 @@ namespace HilleredSailors.Pages.Bookings
 
         [BindProperty]
         public string EndTime { get; set; }
-      
+        #endregion
+
+        #region Constructor
         public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo) {
             Booking = new Booking();
             boatRepository = BRepo;
             bookingRepository = BORepo;
         }
-
+        #endregion
+        #region Methods
         public void OnGet(string endTime, string sailNumber, string startTime)
         {
             SailNumber = sailNumber;
             StartTime = startTime;
             EndTime = endTime;
         }
-
         public IActionResult OnPost() {
             IBoat b = boatRepository.GetBoat(SailNumber);
             Booking.AddBoat(boatRepository.GetBoat(SailNumber));
@@ -51,6 +56,6 @@ namespace HilleredSailors.Pages.Bookings
             ValidBook = false;
             return Page();
         }
-        
+        #endregion
     }
 }
