@@ -18,7 +18,6 @@ namespace BoatLibrary.Objects
         public int ParticipantCount { get { return _participants.Count; } }
         public DateTime Date { get; set ; }
         public string header { get; set; }
-
         public string Description { get; set; }
         #endregion
 

@@ -8,6 +8,7 @@ namespace BoatLibrary.Interfaces
 {
     public interface IBooking
     {
+        public int Id { get; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public IBoat Boat { get; set; }
