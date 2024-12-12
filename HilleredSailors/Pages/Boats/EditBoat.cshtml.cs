@@ -22,9 +22,9 @@ namespace HilleredSailors.Pages.Boats
         #endregion
 
         #region Methods
-        public void OnGet(string SailNumber)
+        public void OnGet(string editSN)
         {
-            Boat = (Boat)_boatRepository.GetBoat(SailNumber);
+            Boat = (Boat)_boatRepository.GetBoat(editSN);
         }
         public IActionResult OnPost()
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BoatLibrary.Interfaces;
+using BoatLibrary.Objects;
 
 public class Boat : IBoat
 {
@@ -22,6 +23,11 @@ public class Boat : IBoat
 
     public Dictionary<DateTime, bool> Calender { get; }
     public ILog Log { get; set; }
+
+    public Boat()
+    {
+        ILog log = new Log();
+    }
     #endregion
 }
 

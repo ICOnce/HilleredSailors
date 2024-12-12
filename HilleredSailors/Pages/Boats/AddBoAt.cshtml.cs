@@ -1,3 +1,4 @@
+using BoatLibrary.Objects;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -25,7 +26,9 @@ namespace HilleredSailors.Pages.Boats
         {
         }
         public IActionResult OnPost() {
+            boat.Log = new Log();
             BoatRepository.AddBoat(boat);
+
             return RedirectToPage("/Index");
         }
         #endregion

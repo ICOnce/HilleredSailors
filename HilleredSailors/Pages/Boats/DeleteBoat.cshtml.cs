@@ -21,9 +21,9 @@ namespace HilleredSailors.Pages.Boats
         #endregion
 
         #region Methods
-        public void OnGet(string SailNumber)
+        public void OnGet(string deleteSN)
         {
-            Boat = (Boat)_boatRepository.GetBoat(SailNumber);
+            Boat = (Boat)_boatRepository.GetBoat(deleteSN);
         }
         public IActionResult OnPost() {
             _boatRepository.DeleteBoat(Boat.SailNumber);

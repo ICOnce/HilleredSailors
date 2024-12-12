@@ -20,6 +20,7 @@ namespace BoatLibrary.Objects
         public string header { get; set; }
 
         public string Description { get; set; }
+        #endregion
 
         #region Constructor
         public Event() { 
