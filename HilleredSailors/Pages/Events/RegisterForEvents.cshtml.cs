@@ -8,13 +8,12 @@ namespace HilleredSailors.Pages.Events
 {
     public class RegisterForEventsModel : PageModel
     {
-        IMemberRepository memberRepo;
-        IEventRepository eventRepo;
+        public IMemberRepository memberRepo;
+        public IEventRepository eventRepo;
         private List<IMember> members=new List<IMember>();
+
         public List<SelectListItem> memberList { get; set; }
         public int MemberID { get; set; }
-        [BindProperty]
-        public Event Event { get; set; }
 
         public RegisterForEventsModel(IMemberRepository IMR, IEventRepository eventRepo)
         {
@@ -38,10 +37,10 @@ namespace HilleredSailors.Pages.Events
             Page();
         }
 
-        public IActionResult OnPostFinnish(int i) {
+        public IActionResult OnPostFinnish(string i) {
             
             foreach (IMember m in members) { 
-                Event.AddParticipant(m);
+                eventRepo.GetEvent(DateTime.Parse(i)).AddParticipant(m);
             }
             return Redirect("ShowEvents");
         }

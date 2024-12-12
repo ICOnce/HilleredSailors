@@ -17,7 +17,9 @@ namespace BoatLibrary.Objects
         public IMember Organizer { get; set; }
         public int ParticipantCount { get { return _participants.Count; } }
         public DateTime Date { get; set ; }
-        #endregion
+        public string header { get; set; }
+
+        public string Description { get; set; }
 
         #region Constructor
         public Event() { 
