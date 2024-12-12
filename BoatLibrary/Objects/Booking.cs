@@ -19,9 +19,7 @@ namespace BoatLibrary.Objects
         public DateTime StartTime { get; set ; }
         public DateTime EndTime { get ; set ; }
         public IBoat Boat { get; set ; }
-        public Member Booker { get; set ; }
-
-        private List<IBoat> Boats=new List<IBoat>();
+        public Member Booker { get; set; }
 
         public Booking() 
         {
@@ -40,9 +38,10 @@ namespace BoatLibrary.Objects
         }
         public IBoat GetBoat(string sailNumber)
         {
-            foreach (var b in _boats) {
-                if (b.SailNumber==sailNumber) {
-                    return b;
+            foreach (var boat in _boats) 
+            {
+                if (boat.SailNumber == sailNumber) {
+                    return boat;
                 }
             }
             return null;

@@ -58,7 +58,12 @@ namespace BoatLibrary.Repos
             }
             return null;
         }
-        public Booking GetBookingByID(int id)
+        public Booking GetBookingByID(IBooking id)
+        {
+            return null;
+        }
+        /*
+        public Booking GetBookingByID(IBooking id)
         {
             foreach (Booking booking in _bookings)
             {
@@ -69,16 +74,12 @@ namespace BoatLibrary.Repos
             }
             return null;
         }
+        */
         public void DeleteBooking(IBooking booking)
         {
             _bookings.Remove(booking);
         }
         public string Tostring()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Booking GetBookingByID(IMember ID)
         {
             throw new NotImplementedException();
         }

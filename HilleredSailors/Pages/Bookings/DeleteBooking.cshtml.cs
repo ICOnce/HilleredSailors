@@ -21,14 +21,20 @@ namespace HilleredSailors.Pages.Bookings
         {
             _repo = bookingRepository;
         }
+        public void OnGet(IBooking deleteBooking)
+        {
+            Booking = _repo.GetBookingByID(deleteBooking);
+        }
+        /*
         public void OnGet(IMember deleteMember)
         {
             Booking = _repo.GetBookingByMember(deleteMember);
         }
+        */
         public IActionResult OnPost()
         {
             _repo.DeleteBooking(Booking);
-            return RedirectToPage("ShowBookings");
+            return RedirectToPage("DeleteBooking");
         }
         #endregion
     }

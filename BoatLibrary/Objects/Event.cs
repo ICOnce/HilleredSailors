@@ -22,7 +22,8 @@ namespace BoatLibrary.Objects
         #endregion
 
         #region Constructor
-        public Event() { 
+        public Event() 
+        { 
             _participants = new List<IMember>();
         }
         #endregion
