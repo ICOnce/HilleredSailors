@@ -13,6 +13,7 @@ namespace BoatLibrary.Objects
         public List<IMember> _participants;
         #endregion
 
+
         #region Properties
         public IMember Organizer { get; set; }
         public int ParticipantCount { get { return _participants.Count; } }
@@ -20,12 +21,15 @@ namespace BoatLibrary.Objects
         public string header { get; set; }
 
         public string Description { get; set; }
+        public int MaxParticipants { get; set; }
+        #endregion 
 
         #region Constructor
         public Event() { 
             _participants = new List<IMember>();
         }
         #endregion
+
 
         #region Methods
         public void AddParticipant(IMember Par)
@@ -37,5 +41,6 @@ namespace BoatLibrary.Objects
             _participants.Remove(Par);
         }
         #endregion
+
     }
 }
