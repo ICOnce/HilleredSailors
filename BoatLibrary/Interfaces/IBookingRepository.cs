@@ -10,12 +10,12 @@ namespace BoatLibrary.Interfaces
     public interface IBookingRepository
     {
         public int Count { get; }
-        public List<IBooking> GetAll();
-        public void ABooking(IBooking booking);
+        public List<Booking> GetAll();
+        public void ABooking(Booking booking);
         public void DeleteBooking(int ID);
-        public Booking GetBookingByMember(IMember member);
+        public Booking GetBookingByMember(Member member);
         public Booking GetBookingByID(int ID);
-        public bool BookingPossible(IBooking book);
+        public bool BookingPossible(Booking book);
         public string Tostring();
     }
 }

@@ -11,7 +11,7 @@ namespace BoatLibrary.Repos
     public class BookkingRepository : IBookingRepository
     {
         #region Instances
-        private List<IBooking> _bookings;
+        private List<Booking> _bookings;
         #endregion
 
         #region Properties
@@ -21,16 +21,17 @@ namespace BoatLibrary.Repos
         #region Constructor
         public BookkingRepository() 
         { 
-            _bookings = new List<IBooking>();
+            _bookings = new List<Booking>();
         }
         #endregion
         
         #region Methods
-        public void ABooking(IBooking booking)
+        public void ABooking(Booking booking)
         {
             _bookings.Add(booking);
         }
-        public bool BookingPossible(IBooking book)
+
+        public bool BookingPossible(Booking book)
         {
             foreach (IBooking booking in _bookings) {
                 if (booking.GetBoats().Contains(book.Boat) ) {
@@ -40,11 +41,11 @@ namespace BoatLibrary.Repos
             }
             return false;
         }
-        public List<IBooking> GetAll()
+        public List<Booking> GetAll()
         {
             return _bookings;
         }
-        public Booking GetBookingByMember(IMember member)
+        public Booking GetBookingByMember(Member member)
         {
             foreach (Booking booking in _bookings) 
             { 

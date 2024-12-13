@@ -12,7 +12,7 @@ namespace BoatLibrary.Repos
     public class EventRepo : IEventRepository
     {
         #region Instances
-        List<IEvent> events;
+        List<Event> events;
         #endregion
 
         #region Properties
@@ -20,9 +20,15 @@ namespace BoatLibrary.Repos
         #endregion
 
         #region Constructor
+
+        #endregion
+
+        #region Methods
+
+        #endregion
         public EventRepo() { 
-            events = new List<IEvent>();
-            IEvent e = new Event();
+            events = new List<Event>();
+            Event e = new Event();
             e.header = "Træning på søen";
             e.Organizer = new Member();
             e.Date = DateTime.Now;
@@ -36,31 +42,34 @@ namespace BoatLibrary.Repos
             e.Description = "i dag skal hitler væk";
             e.MaxParticipants = 200;
             events.Add(e);
-        }
-        #endregion
 
-        #region Methods
-        public void AddEvent(IEvent e) 
-        { 
+        }
+
+        public void AddEvent(Event e) { 
             events.Add(e);
         }
+
         public void DeleteEvent(DateTime date)
         {
-            foreach (IEvent e in events) {
+            foreach (Event e in events) {
                 if (e.Date == date) { 
                     events.Remove(e);
                     return;
                 }
             }
         }
-        public List<IEvent> GetAll()
+
+        public List<Event> GetAll()
         {
             return events;
         }
-        public IEvent GetEvent(DateTime date)
+
+        public Event GetEvent(DateTime date)
         {
-            foreach (IEvent e in events)
+            foreach (Event e in events)
             {
+               
+                
                 if (date.Date.Equals(e.Date.Date))
                 {
                     return e;
@@ -68,13 +77,14 @@ namespace BoatLibrary.Repos
             }
             return null;
         }
+
         public void UpdateEvent()
         {
-            foreach (IEvent e in events) 
-            {
+            foreach (Event e in events) {
                 if (e.Date<DateTime.Now) events.Remove(e);
             }
         }
-        #endregion
+
+       
     }
 }

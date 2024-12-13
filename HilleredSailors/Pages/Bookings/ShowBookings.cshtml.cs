@@ -13,7 +13,7 @@ namespace HilleredSailors.Pages.Bookings
         #endregion
 
         #region View Model
-        public List<IBooking> Bookings { get; private set; }
+        public List<Booking> Bookings { get; private set; }
         #endregion
 
         #region Constructor

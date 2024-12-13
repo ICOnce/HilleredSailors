@@ -1,4 +1,5 @@
 ﻿using BoatLibrary.Interfaces;
+using BoatLibrary.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 public interface IEventRepository
 {
     int EventCount { get; }
-    IEvent GetEvent(DateTime date);
-    public void AddEvent(IEvent e);
+    Event GetEvent(DateTime date);
+    public void AddEvent(Event e);
     public void UpdateEvent();
     public void DeleteEvent(DateTime date);
-    public List<IEvent> GetAll();
+    public List<Event> GetAll();
     string ToString();
 }
 

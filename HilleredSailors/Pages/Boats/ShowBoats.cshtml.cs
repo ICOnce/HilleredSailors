@@ -12,7 +12,7 @@ namespace HilleredSailors.Pages.Boats
         #region Instances
         public IBoatRepository BRepo;
         public IBookingRepository BookingRepo;
-        public List<IBoat> BoatList;
+        public List<Boat> BoatList;
         #endregion
 
         #region Properties

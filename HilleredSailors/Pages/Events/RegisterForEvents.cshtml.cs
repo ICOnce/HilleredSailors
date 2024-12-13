@@ -10,7 +10,7 @@ namespace HilleredSailors.Pages.Events
     {
         public IMemberRepository memberRepo;
         public IEventRepository eventRepo;
-        private List<IMember> members=new List<IMember>();
+        private List<Member> members=new List<Member>();
         [BindProperty]
         public List<SelectListItem> memberList { get; set; }
         [BindProperty]
@@ -26,7 +26,7 @@ namespace HilleredSailors.Pages.Events
 
         void FillList() {
             memberList.Clear();
-            foreach (IMember m in memberRepo.GetAll())
+            foreach (Member m in memberRepo.GetAll())
             {
                 SelectListItem item = new SelectListItem(m.Name, m.Id.ToString());
                 memberList.Add(item);
@@ -34,7 +34,7 @@ namespace HilleredSailors.Pages.Events
         }
 
         public void OnPostAddMember(string i) {
-            Event temp = (Event)eventRepo.GetEvent(DateTime.Parse(i));
+            Event temp = eventRepo.GetEvent(DateTime.Parse(i));
             
             temp.AddParticipant(memberRepo.GetMember(MemberID));
             FillList();
@@ -43,8 +43,8 @@ namespace HilleredSailors.Pages.Events
 
         public IActionResult OnPostFinnish(string i) {
             Console.WriteLine("no");
-            Event temp = (Event)eventRepo.GetEvent(DateTime.Parse(i));
-            foreach (IMember m in members) { 
+            Event temp = eventRepo.GetEvent(DateTime.Parse(i));
+            foreach (Member m in members) { 
                 temp.AddParticipant(m);
             }
             return Redirect("ShowEvents");

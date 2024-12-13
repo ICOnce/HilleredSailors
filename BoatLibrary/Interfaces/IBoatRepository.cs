@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public interface IBoatRepository
 {
     public int Count { get; }
-    public IBoat GetBoat(string sailNumber);
-    public List<IBoat> GetAll();
-    public void AddBoat(IBoat boat);
+    public Boat GetBoat(string sailNumber);
+    public List<Boat> GetAll();
+    public void AddBoat(Boat boat);
     public void DeleteBoat(string sailNumber);
-    public void UpdateBoat(IBoat boat, string sailNumber);
+    public void UpdateBoat(Boat boat, string sailNumber);
 }
 

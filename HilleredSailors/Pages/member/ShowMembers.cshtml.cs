@@ -7,7 +7,7 @@ namespace HilleredSailors.Pages.member
     {
         private IMemberRepository _memberRepository;
 
-        public List<IMember> Members { get { return _memberRepository.GetAll(); } }
+        public List<Member> Members { get { return _memberRepository.GetAll(); } }
 
         public ShowMembersModel(IMemberRepository memberRepository)
         {
