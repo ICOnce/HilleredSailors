@@ -14,7 +14,7 @@ namespace BoatLibrary.Interfaces
         public void ABooking(IBooking booking);
         public void DeleteBooking(IBooking booking);
         public Booking GetBookingByMember(IMember member);
-        public Booking GetBookingByID(int ID);
+        public Booking GetBookingByID(IBooking ID);
         public bool BookingPossible(IBooking book);
         public string Tostring();
     }
