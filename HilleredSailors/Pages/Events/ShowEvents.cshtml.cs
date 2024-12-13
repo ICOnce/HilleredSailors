@@ -39,19 +39,13 @@ namespace HilleredSailors.Pages.Events
             Members = new List<IMember>();
         }
 
-        public void OnPostAddMember(string i) {
+        public void OnPostAddMember(string i)
+        {
             Event temp = (Event)EventRepository.GetEvent(DateTime.Parse(i));
-            temp.AddParticipant(MemberRepository.GetMember(MemberID));
-            FillList();
-        }
-
-        public IActionResult OnPostFinnish(string i) {
-            Event temp = (Event)EventRepository.GetEvent(DateTime.Parse(i));
-            foreach (IMember m in Members)
-            {
-                temp.AddParticipant(m);
+            if (temp._participants.Count < temp.MaxParticipants) {
+                temp.AddParticipant(MemberRepository.GetMember(MemberID));
             }
-            return Page();
+            FillList();
         }
     }
 }

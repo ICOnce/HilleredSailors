@@ -8,13 +8,13 @@ namespace BoatLibrary.Interfaces
 {
     public interface IEvent
     {
-        public IMember Organizer { get; set; }
+        public Member Organizer { get; set; }
         public int ParticipantCount { get; }
         public DateTime Date { get; set; }
-        public void AddParticipant(IMember Par);
+        public void AddParticipant(Member Par);
         public string Description { get; set; }
         public string header { get; set; }
         public int MaxParticipants { get; set; }
-        public void RemoveParticipant(IMember Par);
+        public void RemoveParticipant(Member Par);
     }
 }
