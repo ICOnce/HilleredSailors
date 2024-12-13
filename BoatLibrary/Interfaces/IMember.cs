@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public interface IMember
 {
-    public int Id { get; } 
+    public int Id { get; set; } 
     string Phone {  get; set; }
     string Name { get; set; }
     string Email { get; set; }

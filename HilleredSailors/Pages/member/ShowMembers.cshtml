@@ -26,8 +26,8 @@
                 <td>@item.Type</td>
                 <td>@item.Email</td>
                 <td>@item.Phone</td>
-                <td><a asp-page="EditMember" asp-route-editBoat="@item.Id">Edit</a></td>
-                <td><a asp-page="DeleteMember" asp-route-deleteBoat="@item.Id">Delete</a></td>
+                <td><a asp-page="EditMember" asp-route-id="@item.Id">Edit</a></td>
+                <td><a asp-page="DelteMember" asp-route-id="@item.Id">Delete</a></td>
                 @* <td><a asp-page="DeleteCustomer" asp-route-deleteId="@item.Id">Delete</a></td> *@
             </tr>
         }

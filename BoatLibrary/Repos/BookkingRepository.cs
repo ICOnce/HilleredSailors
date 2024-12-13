@@ -35,12 +35,11 @@ namespace BoatLibrary.Repos
         {
             foreach (IBooking booking in _bookings) {
                 if (booking.GetBoats().Contains(book.Boat) ) {
-                    
-                    if (booking.StartTime <= book.StartTime && booking.EndTime >= book.StartTime) return false;
-                    if (booking.StartTime <= book.EndTime && booking.EndTime >= book.EndTime) return false;
+                    if (booking.EndTime<=book.StartTime && book.StartTime<book.EndTime) return true;
+                    if (book.EndTime<=booking.StartTime && booking.StartTime < booking.EndTime) return true;
                 }
             }
-            return true;
+            return false;
         }
         public List<IBooking> GetAll()
         {

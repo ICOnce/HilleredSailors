@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public interface IMemberRepository
 {
     int MemberCount { get; }
-    IMember GetMember(int id);
-    List<IMember> GetAll();
-    void AddMember(IMember member);
+    Member GetMember(int id);
+    List<Member> GetAll();
+    void AddMember(Member member);
     void DeleteMember(int id);
-    void UpdateMember(int ID, IMember member);
+    void UpdateMember(int ID, Member member);
     String ToString();
 }
