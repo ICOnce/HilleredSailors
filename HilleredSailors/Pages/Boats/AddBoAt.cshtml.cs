@@ -8,15 +8,16 @@ namespace HilleredSailors.Pages.Boats
     {
         #region Instances
         public IBoatRepository BoatRepository;
-        [BindProperty]
         #endregion
 
         #region Properties
+        [BindProperty]
         public Boat boat { get; set; }
         #endregion
 
         #region Constructor
-        public AddBoAtModel(IBoatRepository bRepo) { 
+        public AddBoAtModel(IBoatRepository bRepo) 
+        { 
             BoatRepository = bRepo;
         }
         #endregion
@@ -25,11 +26,12 @@ namespace HilleredSailors.Pages.Boats
         public void OnGet()
         {
         }
-        public IActionResult OnPost() {
+        public IActionResult OnPost() 
+        {
             boat.Log = new Log();
             BoatRepository.AddBoat(boat);
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("ShowBoats");
         }
         #endregion
     }
