@@ -46,16 +46,34 @@ namespace BoatLibrary.Repos
         {
             return _bookings;
         }
-        public Booking GetBookingByMember(IMember m)
+        public Booking GetBookingByMember(IMember member)
         {
-            foreach (Booking b in _bookings) { 
-                if (b.Booker == m)
+            foreach (Booking booking in _bookings) 
+            { 
+                if (booking.Booker == member)
                 {
-                    return b;
+                    return booking;
                 }
             }
             return null;
         }
+        public Booking GetBookingByID(IBooking id)
+        {
+            return null;
+        }
+        /*
+        public Booking GetBookingByID(IBooking id)
+        {
+            foreach (Booking booking in _bookings)
+            {
+                if (booking.Id == id)
+                {
+                    return booking;
+                }
+            }
+            return null;
+        }
+        */
         public void DeleteBooking(IBooking booking)
         {
             _bookings.Remove(booking);

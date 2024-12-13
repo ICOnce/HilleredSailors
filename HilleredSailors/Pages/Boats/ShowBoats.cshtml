@@ -11,7 +11,7 @@
         <label asp-for="@Model.EndTime" class="control-label"></label>
         <input asp-for="@Model.EndTime" class="form-control" required="true"/>
     </div>
-
+    <p></p>
     <div class="formgroup">
         <input type="submit" value="Find available" class="btn btn-primary" />
     </div>
@@ -39,12 +39,13 @@
                 <td>@item.MotorInfo</td>
                 <td>@item.Length</td>
                 <td>@item.Width</td>
-                <td><a asp-page="EditCustomer" asp-route-id="@item.SailNumber">Edit</a></td>
-                <td><a asp-page="DeleteCustomer" asp-route-deleteMobile="@item.SailNumber">Delete</a></td>
+                <td><a asp-page="EditBoat" asp-route-editSN="@item.SailNumber">Edit</a></td>
+                <td><a asp-page="DeleteBoat" asp-route-deleteSN="@item.SailNumber">Delete</a></td>
                 <td><a asp-page="/Bookings/MakeBooking" 
                     asp-route-startTime="@Model.StartTime.ToString()" 
                     asp-route-sailNumber="@item.SailNumber" 
                     asp-route-endTime="@Model.EndTime.ToString()">Book</a></td>
+                <td><a asp-page="ShowLog" asp-route-showSN="@item.SailNumber">Add to log</a></td>
             </tr>
         }
     </tbody>
