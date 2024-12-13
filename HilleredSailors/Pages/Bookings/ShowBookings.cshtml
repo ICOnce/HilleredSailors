@@ -14,6 +14,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>ID</th>
             <th>Member</th>
             <th>Boat</th>
             <th>Start time</th>
@@ -24,12 +25,13 @@
         @foreach (Booking item in Model.Bookings)
         {
             <tr>
+                <td>@item.Id</td>
                 <td>@item.Booker.Name</td>
                 <td>@item.Boat.SailNumber</td>
                 <td>@item.StartTime</td>
                 <td>@item.EndTime</td>
-                <td><a asp-page="EditBooking" asp-route-editBookingstart="@item">Edit</a></td>
-                <td><a asp-page="DeleteBooking" asp-route-deleteBoat="@item">Delete</a></td>
+                <td><a asp-page="EditBooking" asp-route-editBookingstart="@item.Id">Edit</a></td>
+                <td><a asp-page="DeleteBooking" asp-route-deleteBooking="@item.Id">Delete</a></td>
                 @* <td><a asp-page="DeleteCustomer" asp-route-deleteId="@item.Id">Delete</a></td> *@
             </tr>
         }

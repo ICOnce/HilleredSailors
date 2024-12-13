@@ -24,7 +24,7 @@ namespace BoatLibrary.Repos
             _bookings = new List<IBooking>();
         }
         #endregion
-
+        
         #region Methods
         public void ABooking(IBooking booking)
         {
@@ -56,12 +56,7 @@ namespace BoatLibrary.Repos
             }
             return null;
         }
-        public Booking GetBookingByID(IBooking id)
-        {
-            return null;
-        }
-        /*
-        public Booking GetBookingByID(IBooking id)
+        public Booking GetBookingByID(int id)
         {
             foreach (Booking booking in _bookings)
             {
@@ -72,10 +67,16 @@ namespace BoatLibrary.Repos
             }
             return null;
         }
-        */
-        public void DeleteBooking(IBooking booking)
+        public void DeleteBooking(int id)
         {
-            _bookings.Remove(booking);
+            foreach (var book in _bookings)
+            {
+                if (book.Id == id)
+                {
+                    _bookings.Remove(book);
+                    return;
+                }
+            }
         }
         public string Tostring()
         {

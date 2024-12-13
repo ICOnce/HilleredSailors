@@ -8,8 +8,9 @@ namespace HilleredSailors.Pages.Bookings
     public class MakeBookingModel : PageModel
     {
         #region Instances
-        public IBoatRepository boatRepository;
-        public IBookingRepository bookingRepository;
+        private int _id = 0;
+        private IBoatRepository _boatRepository;
+        private IBookingRepository _bookingRepository;
         #endregion
 
         #region Properties
@@ -30,9 +31,10 @@ namespace HilleredSailors.Pages.Bookings
 
         #region Constructor
         public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo) {
+            _id++;
             Booking = new Booking();
-            boatRepository = BRepo;
-            bookingRepository = BORepo;
+            _boatRepository = BRepo;
+            _bookingRepository = BORepo;
         }
         #endregion
         #region Methods
@@ -43,15 +45,15 @@ namespace HilleredSailors.Pages.Bookings
             EndTime = endTime;
         }
         public IActionResult OnPost() {
-            IBoat b = boatRepository.GetBoat(SailNumber);
-            Booking.AddBoat(boatRepository.GetBoat(SailNumber));
+            IBoat b = _boatRepository.GetBoat(SailNumber);
+            Booking.AddBoat(_boatRepository.GetBoat(SailNumber));
             Booking.Boat = b;
             Booking.StartTime = DateTime.Parse(StartTime);
             Booking.EndTime = DateTime.Parse(EndTime);
-            if (bookingRepository.BookingPossible(Booking)) {
-                bookingRepository.ABooking(Booking);
+            if (_bookingRepository.BookingPossible(Booking)) {
+                _bookingRepository.ABooking(Booking);
                 ValidBook = true;
-                return Redirect("/Index");
+                return Redirect("ShowBookings");
             }
             ValidBook = false;
             return Page();

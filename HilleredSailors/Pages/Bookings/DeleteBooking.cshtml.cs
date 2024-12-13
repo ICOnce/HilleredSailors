@@ -21,7 +21,7 @@ namespace HilleredSailors.Pages.Bookings
         {
             _repo = bookingRepository;
         }
-        public void OnGet(IBooking deleteBooking)
+        public void OnGet(int deleteBooking)
         {
             Booking = _repo.GetBookingByID(deleteBooking);
         }
@@ -33,8 +33,8 @@ namespace HilleredSailors.Pages.Bookings
         */
         public IActionResult OnPost()
         {
-            _repo.DeleteBooking(Booking);
-            return RedirectToPage("DeleteBooking");
+            _repo.DeleteBooking(Booking.Id);
+            return RedirectToPage("ShowBookings");
         }
         #endregion
     }
