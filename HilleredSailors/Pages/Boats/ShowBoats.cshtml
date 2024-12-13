@@ -26,6 +26,7 @@
             <th>MortorInfo</th>
             <th>Length</th>
             <th>Width</th>
+            <th>Log</th>
 
         </tr>
     </thead>
@@ -45,7 +46,7 @@
                     asp-route-startTime="@Model.StartTime.ToString()" 
                     asp-route-sailNumber="@item.SailNumber" 
                     asp-route-endTime="@Model.EndTime.ToString()">Book</a></td>
-                <td><a asp-page="ShowLog" asp-route-showSN="@item.SailNumber">Add to log</a></td>
+                <td><a asp-page="ShowLog" asp-route-showSN="@item.SailNumber">Show Log</a></td>
             </tr>
         }
     </tbody>
