@@ -41,11 +41,11 @@ namespace BoatLibrary.Repos
             }
             return false;
         }
-        public List<IBooking> GetAll()
+        public List<Booking> GetAll()
         {
             return _bookings;
         }
-        public Booking GetBookingByMember(IMember member)
+        public Booking GetBookingByMember(Member member)
         {
             foreach (Booking booking in _bookings) 
             { 
