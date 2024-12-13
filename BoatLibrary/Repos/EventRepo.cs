@@ -12,22 +12,14 @@ namespace BoatLibrary.Repos
     public class EventRepo : IEventRepository
     {
         #region Instances
-
+        List<IEvent> events;
         #endregion
 
         #region Properties
-
+        public int EventCount { get { return events.Count; } }
         #endregion
 
         #region Constructor
-
-        #endregion
-
-        #region Methods
-
-        #endregion
-        List<IEvent> events;
-        public int EventCount { get { return events.Count; } }
         public EventRepo() { 
             events = new List<IEvent>();
             IEvent e = new Event();
@@ -44,13 +36,14 @@ namespace BoatLibrary.Repos
             e.Description = "i dag skal hitler væk";
             e.MaxParticipants = 200;
             events.Add(e);
-
         }
+        #endregion
 
-        public void AddEvent(IEvent e) { 
+        #region Methods
+        public void AddEvent(IEvent e) 
+        { 
             events.Add(e);
         }
-
         public void DeleteEvent(DateTime date)
         {
             foreach (IEvent e in events) {
@@ -60,18 +53,14 @@ namespace BoatLibrary.Repos
                 }
             }
         }
-
         public List<IEvent> GetAll()
         {
             return events;
         }
-
         public IEvent GetEvent(DateTime date)
         {
             foreach (IEvent e in events)
             {
-               
-                
                 if (date.Date.Equals(e.Date.Date))
                 {
                     return e;
@@ -79,14 +68,13 @@ namespace BoatLibrary.Repos
             }
             return null;
         }
-
         public void UpdateEvent()
         {
-            foreach (IEvent e in events) {
+            foreach (IEvent e in events) 
+            {
                 if (e.Date<DateTime.Now) events.Remove(e);
             }
         }
-
-       
+        #endregion
     }
 }

@@ -15,7 +15,8 @@ public class BoatRepo : IBoatRepository
     #endregion
 
     #region Constructor
-    public BoatRepo() { 
+    public BoatRepo() 
+    { 
         _boats = new List<IBoat>();
     }
     #endregion
@@ -51,7 +52,6 @@ public class BoatRepo : IBoatRepository
         }
             return null;
     }
-
     public void UpdateBoat(IBoat boat, string sailNumber)
     {
         foreach (var b in _boats)

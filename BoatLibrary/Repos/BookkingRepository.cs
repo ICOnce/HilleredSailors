@@ -30,7 +30,6 @@ namespace BoatLibrary.Repos
         {
             _bookings.Add(booking);
         }
-
         public bool BookingPossible(IBooking book)
         {
             foreach (IBooking booking in _bookings) {

@@ -15,7 +15,8 @@ public class MemberRepo : IMemberRepository
     #endregion
 
     #region Constructor
-    public MemberRepo() { 
+    public MemberRepo() 
+    { 
         _memberList = new List<IMember>();
     }
     #endregion
