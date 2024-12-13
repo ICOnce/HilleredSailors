@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public class MemberRepo : IMemberRepository
 {
     #region Instances
-    private List<IMember> _memberList;
+    private List<Member> _memberList;
     #endregion
 
     #region Properties
@@ -16,12 +16,12 @@ public class MemberRepo : IMemberRepository
 
     #region Constructor
     public MemberRepo() { 
-        _memberList = new List<IMember>();
+        _memberList = new List<Member>();
     }
     #endregion
 
     #region Methods
-    public void AddMember(IMember member)
+    public void AddMember(Member member)
     {
         _memberList.Add(member);
     }
@@ -36,11 +36,11 @@ public class MemberRepo : IMemberRepository
             }
         }
     }
-    public List<IMember> GetAll()
+    public List<Member> GetAll()
     {
         return _memberList;
     }
-    public IMember GetMember(int id)
+    public Member GetMember(int id)
     {
         foreach (var member in _memberList) 
         {
@@ -51,7 +51,7 @@ public class MemberRepo : IMemberRepository
         }
         return null;
     }
-    public void UpdateMember(int ID, IMember member)
+    public void UpdateMember(int ID, Member member)
     {
         foreach (var m in _memberList)
         {

@@ -38,7 +38,12 @@ namespace BoatLibrary.Objects
         }
         public void RemoveParticipant(Member Par)
         {
-            _participants.Remove(Par);
+            Member temp = null;
+            foreach (Member m in _participants) {
+                if (m.Id == Par.Id) temp=m;
+            }
+            _participants.Remove(temp);
+            
         }
         #endregion
 

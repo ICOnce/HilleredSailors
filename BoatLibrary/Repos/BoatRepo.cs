@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public class BoatRepo : IBoatRepository
 {
     #region Instances
-    private List<IBoat> _boats;
+    private List<Boat> _boats;
     #endregion
 
     #region Properties
@@ -16,12 +16,12 @@ public class BoatRepo : IBoatRepository
 
     #region Constructor
     public BoatRepo() { 
-        _boats = new List<IBoat>();
+        _boats = new List<Boat>();
     }
     #endregion
 
     #region Methods
-    public void AddBoat(IBoat boat)
+    public void AddBoat(Boat boat)
     {
         _boats.Add(boat);
     }
@@ -34,13 +34,13 @@ public class BoatRepo : IBoatRepository
             }
         }
     }
-    public List<IBoat> GetAll()
+    public List<Boat> GetAll()
     {
-        IBoat[] temp = new IBoat[_boats.Count];
+        Boat[] temp = new Boat[_boats.Count];
         _boats.CopyTo(temp,0);
         return temp.ToList();
     }
-    public IBoat GetBoat(string sailNumber)
+    public Boat GetBoat(string sailNumber)
     {
         foreach (var b in _boats)
         {
@@ -52,7 +52,7 @@ public class BoatRepo : IBoatRepository
             return null;
     }
 
-    public void UpdateBoat(IBoat boat, string sailNumber)
+    public void UpdateBoat(Boat boat, string sailNumber)
     {
         foreach (var b in _boats)
         {

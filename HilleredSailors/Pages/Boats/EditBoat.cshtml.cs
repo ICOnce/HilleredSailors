@@ -24,7 +24,7 @@ namespace HilleredSailors.Pages.Boats
         #region Methods
         public void OnGet(string editSN)
         {
-            Boat = (Boat)_boatRepository.GetBoat(editSN);
+            Boat = _boatRepository.GetBoat(editSN);
         }
         public IActionResult OnPost()
         {

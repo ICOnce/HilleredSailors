@@ -16,7 +16,7 @@ namespace HilleredSailors.Pages.Events
         [BindProperty]
         public List<SelectListItem> memberList { get; set; }
         [BindProperty]
-        public List<IMember> Members { get; set; }
+        public List<Member> Members { get; set; }
         public ShowEventsModel(IEventRepository IER, IMemberRepository IMR) {
             EventRepository = IER;
             MemberRepository = IMR;
@@ -28,7 +28,7 @@ namespace HilleredSailors.Pages.Events
         void FillList()
         {
             memberList.Clear();
-            foreach (IMember m in MemberRepository.GetAll())
+            foreach (Member m in MemberRepository.GetAll())
             {
 
                 SelectListItem item = new SelectListItem(m.Name, m.Id.ToString());
@@ -36,12 +36,12 @@ namespace HilleredSailors.Pages.Events
             }
         }
         public void OnGet(){
-            Members = new List<IMember>();
+            Members = new List<Member>();
         }
 
         public void OnPostAddMember(string i)
         {
-            Event temp = (Event)EventRepository.GetEvent(DateTime.Parse(i));
+            Event temp = EventRepository.GetEvent(DateTime.Parse(i));
             if (temp._participants.Count < temp.MaxParticipants) {
                 temp.AddParticipant(MemberRepository.GetMember(MemberID));
             }

@@ -1,4 +1,5 @@
 using BoatLibrary.Interfaces;
+using BoatLibrary.Objects;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -24,10 +25,10 @@ namespace HilleredSailors.Pages.member
         }
 
         public IActionResult OnPost() {
-            foreach (IEvent e in _eventRepository.GetAll()) {
+            foreach (Event e in _eventRepository.GetAll()) {
                 e.RemoveParticipant(Member);
             }
-            while (_bookingRepository.GetBookingByMember(Member)!=null) _bookingRepository.DeleteBooking(_bookingRepository.GetBookingByMember(Member));
+            while (_bookingRepository.GetBookingByMember(Member)!=null) _bookingRepository.DeleteBooking(_bookingRepository.GetBookingByMember(Member).Id);
             _memberRepository.DeleteMember(Member.Id);
             return RedirectToPage("/Index");
         }

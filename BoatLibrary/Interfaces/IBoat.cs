@@ -15,6 +15,6 @@ public interface IBoat
     public int Length { get; }
     public int Width { get; }
     public Dictionary<DateTime, Boolean> Calender { get; }
-    public ILog Log { get; set; }
+    public Log Log { get; set; }
 }
 

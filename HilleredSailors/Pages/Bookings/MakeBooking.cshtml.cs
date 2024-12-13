@@ -45,7 +45,7 @@ namespace HilleredSailors.Pages.Bookings
             EndTime = endTime;
         }
         public IActionResult OnPost() {
-            IBoat b = _boatRepository.GetBoat(SailNumber);
+            Boat b = _boatRepository.GetBoat(SailNumber);
             Booking.AddBoat(_boatRepository.GetBoat(SailNumber));
             Booking.Boat = b;
             Booking.StartTime = DateTime.Parse(StartTime);

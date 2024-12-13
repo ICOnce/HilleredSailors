@@ -13,7 +13,7 @@ namespace HilleredSailors.Pages.member
         }
 
         [BindProperty]
-        public IMember Member { get; set; }
+        public Member Member { get; set; }
         public IActionResult OnGet(int t)
         {
             Member=mRepo.GetMember(1);

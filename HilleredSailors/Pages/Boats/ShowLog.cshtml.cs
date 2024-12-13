@@ -26,13 +26,13 @@ namespace HilleredSailors.Pages.Boats
         public void OnGet(string showSN)
         {
             SailNumber = showSN;
-            log = (Log) bRepo.GetBoat(SailNumber).Log;
+            log =  bRepo.GetBoat(SailNumber).Log;
             LogMessages = log.GetAll();
         }
 
         public IActionResult OnPost()
         {
-            log = (Log)bRepo.GetBoat(SailNumber).Log;
+            log = bRepo.GetBoat(SailNumber).Log;
             log.AddEntry(NewLogLine);
             LogMessages = log.GetAll();
             return Page();

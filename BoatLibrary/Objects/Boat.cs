@@ -16,7 +16,7 @@ public class Boat : IBoat
     public int Length { get; set; }
     public int Width { get; set; }
     public Dictionary<DateTime, bool> Calender { get; }
-    public ILog Log { get; set; }
+    public Log Log { get; set; }
 
     public Boat()
     {

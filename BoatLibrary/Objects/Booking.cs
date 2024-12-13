@@ -11,14 +11,14 @@ namespace BoatLibrary.Objects
     {
         #region Instances
         private int _id = 0;
-        private List<IBoat> _boats = new List<IBoat>();
+        private List<Boat> _boats = new List<Boat>();
         #endregion
 
         #region Properties
         public int Id { get { return _id; } }
         public DateTime StartTime { get; set ; }
         public DateTime EndTime { get ; set ; }
-        public IBoat Boat { get; set ; }
+        public Boat Boat { get; set ; }
         public Member Booker { get; set; }
 
         public Booking() 
@@ -28,17 +28,17 @@ namespace BoatLibrary.Objects
         #endregion
 
         #region Methods
-        public void AddBoat(IBoat boat)
+        public void AddBoat(Boat boat)
         {
             _boats.Add(boat);
         }
-        public void DeleteBoat(IBoat boat)
+        public void DeleteBoat(Boat boat)
         {
             _boats.Remove(boat);
         }
-        public IBoat GetBoat(string sailNumber)
+        public Boat GetBoat(string sailNumber)
         {
-            foreach (var boat in _boats) 
+            foreach (Boat boat in _boats) 
             {
                 if (boat.SailNumber == sailNumber) {
                     return boat;
@@ -46,7 +46,7 @@ namespace BoatLibrary.Objects
             }
             return null;
         }
-        public List<IBoat> GetBoats()
+        public List<Boat> GetBoats()
         {
             return _boats;
         }
