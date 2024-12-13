@@ -33,13 +33,24 @@ namespace BoatLibrary.Repos
 
         public bool BookingPossible(Booking book)
         {
-            foreach (IBooking booking in _bookings) {
-                if (booking.GetBoats().Contains(book.Boat) ) {
-                    if (booking.EndTime<=book.StartTime && book.StartTime<book.EndTime) return true;
-                    if (book.EndTime<=booking.StartTime && booking.StartTime < booking.EndTime) return true;
-                }
+            if (book.StartTime > book.EndTime)return false;
+            if (_bookings.Count == 0) return true;
+
+            foreach (Booking b in _bookings) {
+                if (b.Boat == book.Boat) {
+                    List<DateTime> Dates = new List<DateTime>();
+                    Dates.Add(book.StartTime);
+                    Dates.Add(book.EndTime);
+                    Dates.Add(b.StartTime);
+                    Dates.Add(b.EndTime);
+                    Dates.Sort();
+                    Booking b1 = new Booking();
+                    if (book.StartTime == Dates[0]) { b1 = book; } else { b1 = b; }
+                    if (Dates[1] != b1.EndTime) return false;
+                } 
             }
-            return false;
+            return true;
+
         }
         public List<Booking> GetAll()
         {

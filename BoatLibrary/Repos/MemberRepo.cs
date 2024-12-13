@@ -53,12 +53,14 @@ public class MemberRepo : IMemberRepository
     }
     public void UpdateMember(int ID, Member member)
     {
+        
         foreach (var m in _memberList)
         {
             if (m.Id == ID) 
             {
                 _memberList.Remove(m);
                 _memberList.Add(member);
+                return; 
             }
         }
     }
