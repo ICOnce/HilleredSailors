@@ -13,7 +13,6 @@ namespace BoatLibrary.Objects
         public List<Member> _participants;
         #endregion
 
-
         #region Properties
         public Member Organizer { get; set; }
         public int ParticipantCount { get { return _participants.Count; } }
@@ -30,7 +29,6 @@ namespace BoatLibrary.Objects
         }
         #endregion
 
-
         #region Methods
         public void AddParticipant(Member Par)
         {
@@ -46,6 +44,5 @@ namespace BoatLibrary.Objects
             
         }
         #endregion
-
     }
 }

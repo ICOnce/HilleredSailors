@@ -21,24 +21,22 @@ namespace BoatLibrary.Objects
         #endregion
 
         #region Methods
-        public void AddEntry(string entry) { 
+        public void AddEntry(string entry) 
+        { 
             _log.Add(entry);
         }
-
-        public string GetEntry(int id) { 
+        public string GetEntry(int id) 
+        { 
             return _log[id];
         }
-
-        public List<string> GetAll() { 
+        public List<string> GetAll() 
+        { 
             return _log;
         }
-
-        public string ToString() {
+        public string ToString() 
+        {
             return null;
         }
         #endregion
-
-       
-       
     }
 }

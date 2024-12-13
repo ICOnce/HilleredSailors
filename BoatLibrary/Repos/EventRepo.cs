@@ -12,11 +12,11 @@ namespace BoatLibrary.Repos
     public class EventRepo : IEventRepository
     {
         #region Instances
-
+        List<IEvent> events;
         #endregion
 
         #region Properties
-
+        public int EventCount { get { return events.Count; } }
         #endregion
 
         #region Constructor
@@ -26,7 +26,7 @@ namespace BoatLibrary.Repos
         #region Methods
 
         #endregion
-        List<Event> events;
+        List<IEvent> events;
         public int EventCount { get { return events.Count; } }
         public EventRepo() { 
             events = new List<Event>();
@@ -53,7 +53,7 @@ namespace BoatLibrary.Repos
 
         public void DeleteEvent(DateTime date)
         {
-            foreach (Event e in events) {
+            foreach (IEvent e in events) {
                 if (e.Date == date) { 
                     events.Remove(e);
                     return;
@@ -68,7 +68,7 @@ namespace BoatLibrary.Repos
 
         public Event GetEvent(DateTime date)
         {
-            foreach (Event e in events)
+            foreach (IEvent e in events)
             {
                
                 

@@ -36,11 +36,11 @@ public class MemberRepo : IMemberRepository
             }
         }
     }
-    public List<Member> GetAll()
+    public List<IMember> GetAll()
     {
         return _memberList;
     }
-    public Member GetMember(int id)
+    public IMember GetMember(int id)
     {
         foreach (var member in _memberList) 
         {
@@ -51,7 +51,7 @@ public class MemberRepo : IMemberRepository
         }
         return null;
     }
-    public void UpdateMember(int ID, Member member)
+    public void UpdateMember(int ID, IMember member)
     {
         foreach (var m in _memberList)
         {

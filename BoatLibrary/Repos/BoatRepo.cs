@@ -21,7 +21,7 @@ public class BoatRepo : IBoatRepository
     #endregion
 
     #region Methods
-    public void AddBoat(Boat boat)
+    public void AddBoat(IBoat boat)
     {
         _boats.Add(boat);
     }
@@ -34,13 +34,13 @@ public class BoatRepo : IBoatRepository
             }
         }
     }
-    public List<Boat> GetAll()
+    public List<IBoat> GetAll()
     {
-        Boat[] temp = new Boat[_boats.Count];
+        IBoat[] temp = new IBoat[_boats.Count];
         _boats.CopyTo(temp,0);
         return temp.ToList();
     }
-    public Boat GetBoat(string sailNumber)
+    public IBoat GetBoat(string sailNumber)
     {
         foreach (var b in _boats)
         {

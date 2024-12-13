@@ -33,19 +33,19 @@ namespace BoatLibrary.Repos
 
         public bool BookingPossible(Booking book)
         {
-            foreach (Booking booking in _bookings) {
+            foreach (IBooking booking in _bookings) {
                 if (booking.GetBoats().Contains(book.Boat) ) {
-                    if (booking.EndTime!<=book.StartTime && book.StartTime < book.EndTime) return false;
-                    if (book.EndTime!<=booking.StartTime && book.StartTime < book.EndTime) return false;
+                    if (booking.EndTime<=book.StartTime && book.StartTime<book.EndTime) return true;
+                    if (book.EndTime<=booking.StartTime && booking.StartTime < booking.EndTime) return true;
                 }
             }
-            return true;
+            return false;
         }
-        public List<Booking> GetAll()
+        public List<IBooking> GetAll()
         {
             return _bookings;
         }
-        public Booking GetBookingByMember(Member member)
+        public Booking GetBookingByMember(IMember member)
         {
             foreach (Booking booking in _bookings) 
             { 
