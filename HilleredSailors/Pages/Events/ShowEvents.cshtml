@@ -1,4 +1,49 @@
 ﻿@page
+@using BoatLibrary.Interfaces;
+@using BoatLibrary.Objects;
 @model HilleredSailors.Pages.Events.ShowEventsModel
 @{
+    ViewData["Title"] = "ShowEvents";
 }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Header</th>
+            <th>Description</th>
+            <th>Organiser</th>
+            <th>When</th>
+            <th>EmptySpots</th>
+            <th>sign up</th>
+            
+            
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (IEvent item in Model.EventRepository.GetAll())
+        {
+            <tr>
+                <td>@item.header</td>
+                <td>@item.Description</td>
+                <td>@item.Organizer</td>
+                <td>@item.Date</td>
+                <td>@(item.MaxParticipants-item.ParticipantCount)</td>
+                  <td>
+                    <form method="post" asp-route-i="@item.Date.ToString()" asp-page-handler="AddMember">
+                        <label>Members</label>
+                        <select id="MemberId" name="MemberId"
+                                asp-for="@Model.MemberID"
+                                asp-items="@Model.memberList">
+                        </select>
+                        <br />
+                        <input type="submit" value="AddMember" />
+                        <br />
+                    </form>
+                </td>
+            </tr>
+               
+        }
+    </tbody>
+</table>

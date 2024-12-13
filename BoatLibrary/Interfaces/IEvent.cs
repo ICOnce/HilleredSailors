@@ -14,6 +14,7 @@ namespace BoatLibrary.Interfaces
         public void AddParticipant(IMember Par);
         public string Description { get; set; }
         public string header { get; set; }
+        public int MaxParticipants { get; set; }
         public void RemoveParticipant(IMember Par);
     }
 }

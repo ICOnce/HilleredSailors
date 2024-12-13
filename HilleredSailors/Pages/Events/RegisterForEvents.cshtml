@@ -11,7 +11,7 @@
     @item.Description;
 
 
-    <form method="post" asp-page-handler="AddMember">
+    <form method="post" asp-route-i="@item.Date.ToString()" asp-page-handler="AddMember">
         <label>Members</label>
         <select id="MemberId" name="MemberId"
                 asp-for="@Model.MemberID"
@@ -20,9 +20,5 @@
         <br />
         <input type="submit" value="AddMember" />
         <br />
-    </form>
-
-    <form method="post" asp-route-i="" asp-page-handler="Finnish">
-        <input type="submit" name="Finnish" value="@item.Date.ToString()" />
     </form>
 }

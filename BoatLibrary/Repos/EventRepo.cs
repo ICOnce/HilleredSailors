@@ -35,7 +35,16 @@ namespace BoatLibrary.Repos
             e.Organizer = new Member();
             e.Date = DateTime.Now;
             e.Description = "Description";
+            e.MaxParticipants = 20;
             events.Add(e);
+            e=new Event();
+            e.header = "kill the nazis";
+            e.Organizer=new Member();
+            e.Date = DateTime.Now.AddDays(2);
+            e.Description = "i dag skal hitler væk";
+            e.MaxParticipants = 200;
+            events.Add(e);
+
         }
 
         public void AddEvent(IEvent e) { 
@@ -61,7 +70,9 @@ namespace BoatLibrary.Repos
         {
             foreach (IEvent e in events)
             {
-                if (e.Date == date)
+               
+                
+                if (date.Date.Equals(e.Date.Date))
                 {
                     return e;
                 }

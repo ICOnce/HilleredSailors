@@ -8,16 +8,34 @@ namespace HilleredSailors.Pages.Boats
     {
         private BoatRepo bRepo;
 
-        public List<string> LogMessages { get; set; }
+        [BindProperty]
+        public Log log { get; private set; }
+
+        public List <String> LogMessages { get; private set; }
+
+        [BindProperty]
+        public String NewLogLine {  get; set; }
+
+        [BindProperty]
+        public String SailNumber { get; set; }
 
         public AddToLogModel(IBoatRepository boatRepository) 
         {
-            bRepo = (BoatRepo) boatRepository;
+            bRepo = (BoatRepo)boatRepository;
         }
         public void OnGet(string showSN)
         {
-            Log log = (Log) bRepo.GetBoat(showSN).Log;
+            SailNumber = showSN;
+            log = (Log) bRepo.GetBoat(SailNumber).Log;
             LogMessages = log.GetAll();
+        }
+
+        public IActionResult OnPost()
+        {
+            log = (Log)bRepo.GetBoat(SailNumber).Log;
+            log.AddEntry(NewLogLine);
+            LogMessages = log.GetAll();
+            return Page();
         }
     }
 }
