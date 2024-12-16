@@ -20,6 +20,7 @@ namespace BoatLibrary.Objects
         public DateTime EndTime { get ; set ; }
         public Boat Boat { get; set ; }
         public Member Booker { get; set; }
+        public bool Returned { get; set; }
 
         public Booking() 
         {
