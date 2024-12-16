@@ -1,7 +1,11 @@
 ﻿@page
 @model HilleredSailors.Pages.Boats.ShowBoatsModel
 @{
+    ViewData["Title"] = "ShowBoats";
 }
+
+<h1>Boats</h1>
+
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="@Model.StartTime" class="control-label"></label>

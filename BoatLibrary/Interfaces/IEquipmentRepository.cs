@@ -7,7 +7,7 @@ using BoatLibrary.Objects;
 
 namespace BoatLibrary.Interfaces
 {
-    internal interface IEquipmentRepository
+    public interface IEquipmentRepository
     {
         public int Count { get; }
         public bool Status { get; set; }

@@ -27,15 +27,7 @@ namespace BoatLibrary.Objects
 
         #region Constructor
         // default constructor
-        public Equipment(string name)
-        {
-            _id++;
-            Name = name;
-            _status = true;
-        }
-
-        // optional parameter
-        public Equipment(string name, string description)
+        public Equipment(string name, string? description)
         {
             _id++;
             Name = name;
