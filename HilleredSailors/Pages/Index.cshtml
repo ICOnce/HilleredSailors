@@ -1,10 +1,49 @@
 ﻿@page
+@using BoatLibrary.Objects;
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Member</th>
+            <th>Boat</th>
+            <th>Start time</th>
+            <th>End time</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Booking item in Model.BookingList)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Booker.Name</td>
+                <td>@item.Boat.SailNumber</td>
+                <td>@item.StartTime</td>
+                <td>@item.EndTime</td>
+                <td>
+                    <div class="formgroup">
+                        <form method="post">
+                            @if(!item.Returned && DateTime.Now > item.EndTime)
+                            {
+                                <input type="submit" asp-route-id="@item.Id" value="Not returned" class="btn btn-danger" />
+                            }
+                            else if (!item.Returned)
+                            {
+                                <input type="submit" asp-route-id="@item.Id" value="Mark return" class="btn btn-primary" />
+                            }
+                            else
+                            {
+                                <p>Boat has returned</p>
+                            }
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
