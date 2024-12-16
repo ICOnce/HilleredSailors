@@ -8,17 +8,28 @@ namespace HilleredSailors.Pages.Equipments
 {
     public class ShowEquipmentModel : PageModel
     {
+        #region Instances
         private IEquipmentRepository _equipmentRepository;
+        public List<Equipment> Equipment { get; private set; }
+        #endregion
 
-        public List<Equipment> Tools;
+        #region Properties
+        
+        #endregion
 
+        #region Constructor
         public ShowEquipmentModel(IEquipmentRepository equipmentRepository)
         {
             _equipmentRepository = equipmentRepository;
         }
+        #endregion
+
+        #region Methods
         public void OnGet()
         {
-            Tools = _equipmentRepository.GetAll();
+            Equipment = _equipmentRepository.GetAll();
         }
+        
+        #endregion
     }
 }
