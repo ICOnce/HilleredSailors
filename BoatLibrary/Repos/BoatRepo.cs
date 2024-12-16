@@ -49,7 +49,7 @@ public class BoatRepo : IBoatRepository
                 return b;
             }
         }
-            return null;
+        return null;
     }
 
     public void UpdateBoat(Boat boat, string sailNumber)

@@ -27,8 +27,6 @@ public class Member : IMember
         
             counter++;
             _id = counter;
-        
-        
     }
     
     // parameterised constructor
@@ -38,10 +36,6 @@ public class Member : IMember
         counter++;
         _id = counter;
     }
-    #endregion
-
-    #region Methods
-
     #endregion
 }
 

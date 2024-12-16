@@ -20,13 +20,8 @@ namespace BoatLibrary.Repos
         #endregion
 
         #region Constructor
-
-        #endregion
-
-        #region Methods
-
-        #endregion
-        public EventRepo() { 
+        public EventRepo() 
+        { 
             events = new List<Event>();
             Event e = new Event();
             e.header = "Træning på søen";
@@ -35,41 +30,39 @@ namespace BoatLibrary.Repos
             e.Description = "Description";
             e.MaxParticipants = 20;
             events.Add(e);
-            e=new Event();
+            e = new Event();
             e.header = "kill the nazis";
-            e.Organizer=new Member();
+            e.Organizer = new Member();
             e.Date = DateTime.Now.AddDays(2);
             e.Description = "i dag skal hitler væk";
             e.MaxParticipants = 200;
             events.Add(e);
-
         }
+        #endregion
 
+        #region Methods
         public void AddEvent(Event e) { 
             events.Add(e);
         }
-
         public void DeleteEvent(DateTime date)
         {
-            foreach (Event e in events) {
-                if (e.Date == date) { 
+            foreach (Event e in events) 
+            {
+                if (e.Date == date) 
+                { 
                     events.Remove(e);
                     return;
                 }
             }
         }
-
         public List<Event> GetAll()
         {
             return events;
         }
-
         public Event GetEvent(DateTime date)
         {
             foreach (Event e in events)
             {
-               
-                
                 if (date.Date.Equals(e.Date.Date))
                 {
                     return e;
@@ -77,14 +70,13 @@ namespace BoatLibrary.Repos
             }
             return null;
         }
-
         public void UpdateEvent()
         {
-            foreach (Event e in events) {
-                if (e.Date<DateTime.Now) events.Remove(e);
+            foreach (Event e in events) 
+            {
+                if (e.Date < DateTime.Now) events.Remove(e);
             }
         }
-
-       
+        #endregion
     }
 }

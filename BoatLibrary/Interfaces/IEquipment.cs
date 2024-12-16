@@ -9,14 +9,8 @@ namespace BoatLibrary.Interfaces
 {
     public interface IEquipment
     {
-        public int Id { get; set; }
+        public int Id { get; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Status { get; set; }
-        public string CheckStatus { get; set; }
-        public void AddEquipment(Equipment item);
-        public Equipment GetEquipment(int Id);
-        public void Borrow(Boat boat);
-        public List<Equipment> GetItems();
     }
 }
