@@ -1,0 +1,33 @@
+﻿@page
+@using BoatLibrary.Objects
+@model HilleredSailors.Pages.Equipments.ShowEquipmentModel
+@{
+	ViewData["Title"] = "ShowEquipment";
+}
+
+<h1>Equipment & Tools</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Equipment equipment in Model.Tools)
+        {
+            <tr>
+                <td>@equipment.Id</td>
+                <td>@equipment.Name</td>
+                <td>@equipment.Description</td>
+                <td>@equipment.Status</td>
+                <td><a asp-page="BorrowEquipment" asp-route-id="@equipment.Id">Edit</a></td>
+                <td><a asp-page="ReturnEquipment" asp-route-itemid="@equipment.Id">Return</a></td>
+                <td><a asp-page="DelteEquipment" asp-route-id="@equipment.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
