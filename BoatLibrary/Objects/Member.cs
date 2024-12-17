@@ -24,9 +24,8 @@ public class Member : IMember
     // default constructor
     public Member() {
         Type = MemberType.MemberTypes.member;
-        
-            counter++;
-            _id = counter;
+        counter++;
+        _id = counter;
         
         
     }
