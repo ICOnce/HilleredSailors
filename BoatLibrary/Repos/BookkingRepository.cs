@@ -30,10 +30,9 @@ namespace BoatLibrary.Repos
         {
             _bookings.Add(booking);
         }
-
         public bool BookingPossible(Booking book)
         {
-            if (book.StartTime > book.EndTime)return false;
+            if (book.StartTime > book.EndTime) return false;
             if (_bookings.Count == 0) return true;
 
             foreach (Booking b in _bookings) {
@@ -50,7 +49,6 @@ namespace BoatLibrary.Repos
                 } 
             }
             return true;
-
         }
         public List<Booking> GetAll()
         {

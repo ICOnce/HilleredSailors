@@ -13,6 +13,7 @@
             <th>Boat</th>
             <th>Start time</th>
             <th>End time</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -29,11 +30,15 @@
                         <form method="post">
                             @if(!item.Returned && DateTime.Now > item.EndTime)
                             {
-                                <input type="submit" asp-route-id="@item.Id" value="Returned" class="btn btn-danger" />
+                                <input type="submit" asp-route-id="@item.Id" value="Not returned" class="btn btn-danger" />
+                            }
+                            else if (!item.Returned)
+                            {
+                                <input type="submit" asp-route-id="@item.Id" value="Mark return" class="btn btn-primary" />
                             }
                             else
                             {
-                                <input type="submit" asp-route-id="@item.Id" value="Returned" class="btn btn-primary" />
+                                <p>Boat has returned</p>
                             }
                         </form>
                     </div>

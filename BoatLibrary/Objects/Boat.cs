@@ -17,7 +17,9 @@ public class Boat : IBoat
     public int Width { get; set; }
     public Dictionary<DateTime, bool> Calender { get; }
     public Log Log { get; set; }
+    #endregion
 
+    #region Constructor
     public Boat()
     {
         ILog log = new Log();

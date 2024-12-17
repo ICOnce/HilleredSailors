@@ -38,9 +38,5 @@ public class Member : IMember
         _id = counter;
     }
     #endregion
-
-    #region Methods
-
-    #endregion
 }
 
