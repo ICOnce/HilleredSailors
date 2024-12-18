@@ -11,6 +11,7 @@ namespace BoatLibrary.Repos
     public class EquipmentRepository : IEquipmentRepository
     {
         #region Instances
+        private int _id = 0;
         private List<Equipment> _equipmentRepository;
         #endregion
 
