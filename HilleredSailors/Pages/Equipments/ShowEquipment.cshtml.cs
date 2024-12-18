@@ -4,7 +4,7 @@ using BoatLibrary.Repos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HilleredSailors.Pages.Equipment
+namespace HilleredSailors.Pages.Equipments
 {
     public class ShowEquipmentModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace HilleredSailors.Pages.Equipment
         #endregion
 
         #region Constructor
-        public DeleteEquipmentModel(IEquipmentRepository equipRepo)
+        public ShowEquipmentModel(EquipmentRepository equipRepo)
         {
             _equipmentRepository = equipRepo;
         }

@@ -4,12 +4,12 @@ using BoatLibrary.Repos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HilleredSailors.Pages.Equipment
+namespace HilleredSailors.Pages.Equipments
 {
     public class AddEquipmentModel : PageModel
     {
         #region Instances
-        private IEquipmentRepository _equipmentRepository;
+        private EquipmentRepository _equipmentRepository;
         #endregion
 
         #region Properties
@@ -20,7 +20,7 @@ namespace HilleredSailors.Pages.Equipment
         #endregion
 
         #region Constructor
-        public AddEquipmentModel(IEquipmentRepository equipment)
+        public AddEquipmentModel(EquipmentRepository equipment)
         {
             _equipmentRepository = equipment;
         }
