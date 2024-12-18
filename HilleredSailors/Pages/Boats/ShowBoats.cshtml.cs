@@ -14,13 +14,14 @@ namespace HilleredSailors.Pages.Boats
         public IBookingRepository BookingRepo;
         public List<Boat> BoatList;
         #endregion
-        public Member Member { get; set; }
+        
         #region Properties
         [BindProperty]
         public DateTime StartTime { get; set; }
 
         [BindProperty]
         public DateTime EndTime { get; set; }
+        public Member Member { get; set; }
         #endregion
 
         #region Constructor

@@ -9,11 +9,11 @@ namespace HilleredSailors.Pages.Boats
         #region Instances
         public IBoatRepository BoatRepository;
         #endregion
-        public Member Member { get; set; }
 
         #region Properties
         [BindProperty]
         public Boat boat { get; set; }
+        public Member Member { get; set; }
         #endregion
 
         #region Constructor

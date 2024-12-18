@@ -14,8 +14,9 @@ namespace HilleredSailors.Pages.Bookings
         #region Propeties
         [BindProperty]
         public Booking Booking { get; set; }
-        #endregion
         public Member Member { get; set; }
+        #endregion
+
         #region Methods
         public DeleteBookingModel(IBookingRepository bookingRepository, Member m)
         {
