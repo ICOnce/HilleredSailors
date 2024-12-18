@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HilleredSailors", "Hillered
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoatLibrary", "BoatLibrary\BoatLibrary.csproj", "{E9BA0A65-E029-4AB7-A1AB-D8DAA00F5CE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{84B3F4E3-BB27-44A2-9AB4-2C8FE0EB6EB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E9BA0A65-E029-4AB7-A1AB-D8DAA00F5CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9BA0A65-E029-4AB7-A1AB-D8DAA00F5CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9BA0A65-E029-4AB7-A1AB-D8DAA00F5CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84B3F4E3-BB27-44A2-9AB4-2C8FE0EB6EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B3F4E3-BB27-44A2-9AB4-2C8FE0EB6EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B3F4E3-BB27-44A2-9AB4-2C8FE0EB6EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B3F4E3-BB27-44A2-9AB4-2C8FE0EB6EB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
