@@ -1,0 +1,31 @@
+﻿@page
+@model HilleredSailors.Pages.Equipments.DeleteEquipmentModel
+@{
+	ViewData["Title"] = "DeleteEquipment";
+}
+
+<h1>Delete Equipment or Tools</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <label asp-for="@Model.Equipment.Id" class="control-label"></label>
+        <input asp-for="@Model.Equipment.Id" class="form-control" required="true" readonly="true" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Equipment.Name" class="control-label"></label>
+        <input asp-for="@Model.Equipment.Name" class="form-control" required="true" readonly="true" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Equipment.Description" class="control-label"></label>
+        <input asp-for="@Model.Equipment.Description" class="form-control" required="true" readonly="true" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Equipment.Status" class="control-label"></label>
+        <input asp-for="@Model.Equipment.Status" class="form-control" required="true" readonly="true" />
+    </div>
+
+    <div class="formgroup">
+        <input type="submit" value="Delete" class="btn btn-primary" />
+    </div>
+</form>

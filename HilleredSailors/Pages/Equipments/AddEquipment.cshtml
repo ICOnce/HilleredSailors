@@ -1,0 +1,22 @@
+﻿@page
+@model HilleredSailors.Pages.Equipment.AddEquipmentModel
+@{
+    ViewData["Title"] = "AddEquipment";
+}
+
+<h1>Add Equipment & Tools</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.Equipment.Name" class="control-label"></label>
+        <input asp-for="@Model.Equipment.Name" class="form-control" required="true" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Equipment.Description" class="control-label"></label>
+        <input asp-for="@Model.Equipment.Description" class="form-control" required="true" />
+    </div>
+
+    <div class="formgroup">
+        <input type="submit" value="Add" class="btn btn-primary" />
+    </div>
+</form>

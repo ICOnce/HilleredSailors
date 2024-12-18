@@ -37,6 +37,7 @@ namespace HilleredSailors.Pages.Bookings
             _bookingRepository = BORepo;
         }
         #endregion
+
         #region Methods
         public void OnGet(string endTime, string sailNumber, string startTime)
         {
