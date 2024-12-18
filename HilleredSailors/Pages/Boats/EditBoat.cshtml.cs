@@ -8,15 +8,16 @@ namespace HilleredSailors.Pages.Boats
         #region Instances
         private IBoatRepository _boatRepository;
         #endregion
-
+        public Member Member { get; set; }
         #region Properties
         [BindProperty]
         public Boat Boat { get; set; }
         #endregion
 
         #region Constructor
-        public EditBoatModel(IBoatRepository BRepo)
+        public EditBoatModel(IBoatRepository BRepo ,Member m)
         {
+            Member = m;
             _boatRepository = BRepo;
         }
         #endregion

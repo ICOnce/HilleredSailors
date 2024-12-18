@@ -17,12 +17,21 @@ public class MemberRepo : IMemberRepository
     #region Constructor
     public MemberRepo() { 
         _memberList = new List<Member>();
+        Member b = new Member(MemberType.MemberTypes.admin);
+        b.Name = "peter";
+        b.Phone = "12345678";
+        b.Email = "123";
+        _memberList.Add(b);
     }
     #endregion
 
     #region Methods
     public void AddMember(Member member)
     {
+        foreach(Member m in _memberList)
+        {
+            if (m.Email == member.Email) throw new UnavailableEmailException("Email already in use");
+        }
         _memberList.Add(member);
     }
     public void DeleteMember(int id)
@@ -35,6 +44,7 @@ public class MemberRepo : IMemberRepository
                 return;
             }
         }
+        throw new MemberNotFoundException("No member with provided ID");
     }
     public List<Member> GetAll()
     {
@@ -49,20 +59,29 @@ public class MemberRepo : IMemberRepository
                 return member;
             }
         }
-        return null;
+        throw new MemberNotFoundException("No member with provided ID");
     }
     public void UpdateMember(int ID, Member member)
-    {
-        
+    { 
         foreach (var m in _memberList)
         {
             if (m.Id == ID) 
             {
-                _memberList.Remove(m);
-                _memberList.Add(member);
+                m.Name = member.Name;
+                m.Phone = member.Phone;
+                m.Email = member.Email;
+                m.Type = member.Type;
                 return; 
             }
+            else
+            {
+                if(m.Email == member.Email)
+                {
+                    throw new UnavailableEmailException("Email already in use");
+                }
+            }
         }
+        throw new MemberNotFoundException("No member with provided ID");
     }
     #endregion
 }

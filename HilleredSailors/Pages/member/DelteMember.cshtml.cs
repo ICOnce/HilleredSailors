@@ -10,26 +10,28 @@ namespace HilleredSailors.Pages.member
         IMemberRepository _memberRepository;
         IBookingRepository _bookingRepository;
         IEventRepository _eventRepository;
-        [BindProperty]
         public Member Member { get; set; }
+        [BindProperty]
+        public Member member { get; set; }
 
-        public DelteMemberModel(IMemberRepository IMR, IBookingRepository IBR, IEventRepository IER) {
+        public DelteMemberModel(IMemberRepository IMR, IBookingRepository IBR, IEventRepository IER, Member m) {
+            Member = m;
             _memberRepository = IMR;
             _bookingRepository = IBR;
             _eventRepository = IER;
         }
         public void OnGet(int id)
         {
-            Member=_memberRepository.GetMember(id);
-            Member.Id = id;
+            member=_memberRepository.GetMember(id);
+            member.Id = id;
         }
 
         public IActionResult OnPost() {
             foreach (Event e in _eventRepository.GetAll()) {
-                e.RemoveParticipant(Member);
+                e.RemoveParticipant(member);
             }
-            while (_bookingRepository.GetBookingByMember(Member)!=null) _bookingRepository.DeleteBooking(_bookingRepository.GetBookingByMember(Member).Id);
-            _memberRepository.DeleteMember(Member.Id);
+            while (_bookingRepository.GetBookingByMember(member)!=null) _bookingRepository.DeleteBooking(_bookingRepository.GetBookingByMember(member).Id);
+            _memberRepository.DeleteMember(member.Id);
             return RedirectToPage("/Index");
         }
     }

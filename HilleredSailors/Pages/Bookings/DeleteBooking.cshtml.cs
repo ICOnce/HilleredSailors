@@ -15,10 +15,11 @@ namespace HilleredSailors.Pages.Bookings
         [BindProperty]
         public Booking Booking { get; set; }
         #endregion
-
+        public Member Member { get; set; }
         #region Methods
-        public DeleteBookingModel(IBookingRepository bookingRepository)
+        public DeleteBookingModel(IBookingRepository bookingRepository, Member m)
         {
+            Member = m;
             _repo = bookingRepository;
         }
         public void OnGet(int deleteBooking)
