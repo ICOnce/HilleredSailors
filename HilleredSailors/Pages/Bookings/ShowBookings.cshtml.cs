@@ -14,11 +14,13 @@ namespace HilleredSailors.Pages.Bookings
 
         #region View Model
         public List<Booking> Bookings { get; private set; }
+        public Member Member { get; set; }
         #endregion
 
         #region Constructor
-        public ShowBookingsModel(IBookingRepository bookingRepository)
+        public ShowBookingsModel(IBookingRepository bookingRepository, Member m)
         {
+            Member = m;
             _bookingRepo = bookingRepository;
         }
         #endregion

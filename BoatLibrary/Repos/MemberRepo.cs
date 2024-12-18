@@ -17,6 +17,11 @@ public class MemberRepo : IMemberRepository
     #region Constructor
     public MemberRepo() { 
         _memberList = new List<Member>();
+        Member b = new Member(MemberType.MemberTypes.admin);
+        b.Name = "peter";
+        b.Phone = "12345678";
+        b.Email = "123";
+        _memberList.Add(b);
     }
     #endregion
 
@@ -52,14 +57,15 @@ public class MemberRepo : IMemberRepository
         return null;
     }
     public void UpdateMember(int ID, Member member)
-    {
-        
+    { 
         foreach (var m in _memberList)
         {
             if (m.Id == ID) 
             {
-                _memberList.Remove(m);
-                _memberList.Add(member);
+                m.Name = member.Name;
+                m.Phone = member.Phone;
+                m.Email = member.Email;
+                m.Type = member.Type;
                 return; 
             }
         }

@@ -18,9 +18,10 @@ namespace HilleredSailors.Pages.Boats
 
         [BindProperty]
         public String SailNumber { get; set; }
-
-        public AddToLogModel(IBoatRepository boatRepository) 
+        public Member Member { get; set; }
+        public AddToLogModel(IBoatRepository boatRepository, Member m) 
         {
+            Member = m;
             bRepo = (BoatRepo)boatRepository;
         }
         public void OnGet(string showSN)

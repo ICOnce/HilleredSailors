@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HilleredSailors.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -45,15 +46,20 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/member/MemberPAge">MemberPage</a>
                             </li>
                         }
+                        @if (@Model.Member.Type!=MemberType.MemberTypes.member)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">Admin Functions</a>
+                                <ul class="dropdown-menu">
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-page="/boats/AddBoAt">Register boat</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/member/ShowMembers">Members</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Bookings/ShowBookings">Bookings</a></li>
+                                </ul>
+                            </li>
+                        
+                        }
+                        
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">Admin Functions</a>
-                            <ul class="dropdown-menu">
-                                <li> <a class="nav-link text-dark" asp-area="" asp-page="/boats/AddBoAt">Register boat</a></li>
-                                <li><a class="nav-link text-dark" asp-area="" asp-page="/member/ShowMembers">Members</a></li>
-                                <li><a class="nav-link text-dark" asp-area="" asp-page="/Bookings/ShowBookings">Bookings</a></li>
-                            </ul>
-                        </li>
                         @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Contacts">Contact Us</a>
                         </li> *@

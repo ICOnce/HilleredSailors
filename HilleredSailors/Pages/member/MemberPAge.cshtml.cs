@@ -9,14 +9,13 @@ namespace HilleredSailors.Pages.member
     {
         public bool edit { get; set; } = true;
         private Member m;
-        private Member s;
         private IMemberRepository _mRepository;
         [BindProperty]
         public Member Member { get; set; }
         public MemberPAgeModel(Member member , IMemberRepository IMR) {
             
             _mRepository = IMR;
-            foreach (Member m1 in IMR.GetAll())
+            foreach (Member m1 in _mRepository.GetAll())
             {
                 if (m1.Name == member.Name) {
                     int t = member.Id;
@@ -25,10 +24,11 @@ namespace HilleredSailors.Pages.member
                 }
             }
             m = member;
+            Member = member;
         }
 
         public void OnGet() {
-            Member = m;
+            
         }
 
         public void OnPost() { 
@@ -37,16 +37,22 @@ namespace HilleredSailors.Pages.member
 
         public void OnPostWannaEdit() { 
             edit= false;
-            Member = m;
-            Page();
+            //Member = m;
         }
 
-        public void OnPostFinnishEdit() { 
+        public IActionResult OnPostFinnishEdit() { 
             edit = true;
             Member.Id = m.Id;
-            _mRepository.UpdateMember(Member.Id,Member);
+            Member.Type = m.Type;
             
-            Page();
+            _mRepository.UpdateMember(Member.Id,Member);
+
+            m.Name = Member.Name;
+            m.Phone = Member.Phone;
+            m.Email = Member.Email;
+            m.Type = Member.Type;
+            m.Id = Member.Id;
+            return Page();
         }
 
         

@@ -9,6 +9,7 @@ namespace HilleredSailors.Pages.Boats
         #region Instances
         public IBoatRepository BoatRepository;
         #endregion
+        public Member Member { get; set; }
 
         #region Properties
         [BindProperty]
@@ -16,8 +17,9 @@ namespace HilleredSailors.Pages.Boats
         #endregion
 
         #region Constructor
-        public AddBoAtModel(IBoatRepository bRepo) 
+        public AddBoAtModel(IBoatRepository bRepo, Member m) 
         { 
+            Member = m;
             BoatRepository = bRepo;
         }
         #endregion

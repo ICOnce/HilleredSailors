@@ -27,10 +27,13 @@ namespace HilleredSailors.Pages.Bookings
 
         [BindProperty]
         public string EndTime { get; set; }
+
+        public Member Member { get; set; }
         #endregion
 
         #region Constructor
-        public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo) {
+        public MakeBookingModel(IBoatRepository BRepo, IBookingRepository BORepo, Member m) {
+            Member = m;
             _id++;
             Booking = new Booking();
             _boatRepository = BRepo;
@@ -50,6 +53,7 @@ namespace HilleredSailors.Pages.Bookings
             Booking.Boat = b;
             Booking.StartTime = DateTime.Parse(StartTime);
             Booking.EndTime = DateTime.Parse(EndTime);
+            Booking.Booker = Member;
             if (_bookingRepository.BookingPossible(Booking)) {
                 _bookingRepository.ABooking(Booking);
                 ValidBook = true;

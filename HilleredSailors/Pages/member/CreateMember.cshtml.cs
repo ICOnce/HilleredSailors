@@ -8,21 +8,23 @@ namespace HilleredSailors.Pages.member
     public class CreateMemberModel : PageModel
     {
         public IMemberRepository _memberRepository;
+        public Member Member { get; set; }
 
-        public CreateMemberModel(IMemberRepository mRepo)
+        public CreateMemberModel(IMemberRepository mRepo, Member m)
         {
+            Member = m;
             _memberRepository = mRepo;
         }
 
         [BindProperty]
-        public Member Member { get; set; }
+        public Member member { get; set; }
        
         public void OnGet()
         {
         }
 
         public IActionResult OnPost() { 
-            _memberRepository.AddMember(Member);
+            _memberRepository.AddMember(member);
             return RedirectToPage("/Index");
         }
     }

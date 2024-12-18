@@ -14,7 +14,7 @@ namespace HilleredSailors.Pages.Boats
         public IBookingRepository BookingRepo;
         public List<Boat> BoatList;
         #endregion
-
+        public Member Member { get; set; }
         #region Properties
         [BindProperty]
         public DateTime StartTime { get; set; }
@@ -24,7 +24,8 @@ namespace HilleredSailors.Pages.Boats
         #endregion
 
         #region Constructor
-        public ShowBoatsModel(IBoatRepository br, IBookingRepository bookingRepo) { 
+        public ShowBoatsModel(IBoatRepository br, IBookingRepository bookingRepo, Member m) { 
+            Member = m;
             BRepo = br;
             BookingRepo = bookingRepo;
             BoatList = BRepo.GetAll();

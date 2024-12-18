@@ -26,8 +26,6 @@ public class Member : IMember
         Type = MemberType.MemberTypes.member;
         counter++;
         _id = counter;
-        
-        
     }
     
     // parameterised constructor

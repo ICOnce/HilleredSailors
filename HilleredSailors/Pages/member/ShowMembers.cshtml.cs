@@ -8,9 +8,11 @@ namespace HilleredSailors.Pages.member
         private IMemberRepository _memberRepository;
 
         public List<Member> Members { get { return _memberRepository.GetAll(); } }
+        public Member Member { get; set; }
 
-        public ShowMembersModel(IMemberRepository memberRepository)
+        public ShowMembersModel(IMemberRepository memberRepository, Member m)
         {
+            Member = m;
             _memberRepository = memberRepository;
         }
 

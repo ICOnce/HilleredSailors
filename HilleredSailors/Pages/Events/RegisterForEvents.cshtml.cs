@@ -16,8 +16,11 @@ namespace HilleredSailors.Pages.Events
         [BindProperty]
         public int MemberID { get; set; }
 
-        public RegisterForEventsModel(IMemberRepository IMR, IEventRepository eventRepo)
+        public Member Member { get; set; }
+
+        public RegisterForEventsModel(IMemberRepository IMR, IEventRepository eventRepo, Member m)
         {
+            Member = m;
             memberRepo = IMR;
             memberList = new List<SelectListItem>();
             FillList();

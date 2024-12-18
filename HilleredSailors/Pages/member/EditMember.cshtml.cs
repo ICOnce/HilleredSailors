@@ -11,20 +11,23 @@ namespace HilleredSailors.Pages.member
         IBookingRepository _bookingRepository;
         IEventRepository _eventRepository;
         [BindProperty]
+        public Member member { get; set; }
+
         public Member Member { get; set; }
 
-        public EditMemberModel(IMemberRepository IMR)
+        public EditMemberModel(IMemberRepository IMR, Member m)
         {
+            Member = m;
             _memberRepository = IMR;
         }
         public void OnGet(int id)
         {
-            Member = _memberRepository.GetMember(id);
+            member = _memberRepository.GetMember(id);
         }
 
         public IActionResult OnPost()
         {
-            _memberRepository.UpdateMember(Member.Id, Member);
+            _memberRepository.UpdateMember(member.Id, member);
             return RedirectToPage("/Index");
         }
     }

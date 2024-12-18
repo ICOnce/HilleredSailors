@@ -17,7 +17,9 @@ namespace HilleredSailors.Pages.Events
         public List<SelectListItem> memberList { get; set; }
         [BindProperty]
         public List<Member> Members { get; set; }
-        public ShowEventsModel(IEventRepository IER, IMemberRepository IMR) {
+        public Member Member { get; set; }
+        public ShowEventsModel(IEventRepository IER, IMemberRepository IMR, Member m) {
+            Member = m;
             EventRepository = IER;
             MemberRepository = IMR;
 
