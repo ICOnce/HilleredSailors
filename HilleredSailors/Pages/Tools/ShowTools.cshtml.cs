@@ -14,7 +14,7 @@ namespace HilleredSailors.Pages.Tools
 
         #region Properties
         [BindProperty]
-        public List<Equipment> Equipment { get; private set; }
+        public List<Equipment> Equipment { get; set; }
         public Member Member { get; set; }
         #endregion
 

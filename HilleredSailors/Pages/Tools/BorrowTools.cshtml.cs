@@ -31,9 +31,9 @@ namespace HilleredSailors.Pages.Tools
         {
             Equipment = _equipmentRepository.GetEquipment(id);
         }
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
-            _equipmentRepository.BorrowEquipment(Equipment, Equipment.Id);
+            _equipmentRepository.BorrowEquipment(id);
             return Redirect("ShowTools");
         }
         #endregion

@@ -1,3 +1,4 @@
+using System.Reflection;
 using BoatLibrary.Interfaces;
 using BoatLibrary.Objects;
 using BoatLibrary.Repos;
@@ -29,10 +30,11 @@ namespace HilleredSailors.Pages.Tools
         #region Methods
         public void OnGet()
         {
+
         }
         public IActionResult OnPost()
         {
-            _equipmentRepository.AddEquipment(Equipment);
+            _equipmentRepository.AddEquipment(Equipment.Name, Equipment.Description);
             return RedirectToPage("ShowTools");
         }
         #endregion

@@ -11,12 +11,12 @@ namespace BoatLibrary.Interfaces
     {
         public int Count { get; }
         public bool Status { get; set; }
-        public void AddEquipment(Equipment equipment);
-        public void CheckStatus(Equipment equipment, int Id);
-        public void BorrowEquipment(Equipment equipment, int Id);
-        public void ReturnEquipment(Equipment equipment, int Id);
-        public void DeleteEquipment(int Id);
-        public Equipment GetEquipment(int Id);
+        public void AddEquipment(string name, string? description);
+        public void CheckStatus(int id);
+        public void BorrowEquipment(int id);
+        public void ReturnEquipment(int id);
+        public void DeleteEquipment(int id);
+        public Equipment GetEquipment(int id);
         public List<Equipment> GetAll();
     }
 }
