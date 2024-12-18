@@ -4,9 +4,9 @@ using BoatLibrary.Repos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HilleredSailors.Pages.Equipment
+namespace HilleredSailors.Pages.Tools
 {
-    public class BorrowEquipmentModel : PageModel
+    public class ReturnToolsModel : PageModel
     {
         #region Instances
         private IEquipmentRepository _equipmentRepository;
@@ -15,12 +15,14 @@ namespace HilleredSailors.Pages.Equipment
         #region Properties
         [BindProperty]
         public Equipment Equipment { get; set; }
+        public Member Member { get; set; }
         #endregion
 
         #region Constructor
-        public BorrowEquipmentModel(IEquipmentRepository EquipRepo)
+        public ReturnToolsModel(IEquipmentRepository EquipRepo, Member member)
         {
             _equipmentRepository = EquipRepo;
+            Member = member;
         }
         #endregion
 
@@ -31,8 +33,8 @@ namespace HilleredSailors.Pages.Equipment
         }
         public IActionResult OnPost()
         {
-            _equipmentRepository.BorrowEquipment(Equipment, Equipment.Id);
-            return Redirect("ShowEquipment");
+            _equipmentRepository.ReturnEquipment(Equipment, Equipment.Id);
+            return Redirect("ShowTools");
         }
         #endregion
     }

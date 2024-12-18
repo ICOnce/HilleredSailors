@@ -11,7 +11,7 @@ namespace BoatLibrary.Objects
     {
         #region Instances
         private int _id = 0;
-        private bool _status = true;
+        private bool _isAvailable = true;
         #endregion
 
         #region Properties
@@ -20,18 +20,17 @@ namespace BoatLibrary.Objects
         public string Description { get; set; }
         public bool Status 
         { 
-            get {  return _status; }
-            set { _status = value; }
+            get {  return _isAvailable; }
+            set { _isAvailable = value; }
         }
         #endregion
 
         #region Constructor
         // default constructor
-        public Equipment(string name)
+        public Equipment()
         {
             _id++;
-            Name = name;
-            _status = true;
+            _isAvailable = true;
         }
 
         // optional parameter
@@ -40,7 +39,7 @@ namespace BoatLibrary.Objects
             _id++;
             Name = name;
             Description = description;
-            _status = true;
+            _isAvailable = true;
         }
         #endregion
     }

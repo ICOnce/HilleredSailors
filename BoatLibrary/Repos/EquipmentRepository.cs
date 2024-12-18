@@ -53,6 +53,7 @@ namespace BoatLibrary.Repos
                 if (item.Id == Id && item.Status == true)
                 {
                     equipment.Status = false;
+                    return;
                 }
             }
         }
@@ -63,6 +64,7 @@ namespace BoatLibrary.Repos
                 if (item.Id == Id && item.Status == false)
                 {
                     equipment.Status = true;
+                    return;
                 }
             }
         }
@@ -73,6 +75,7 @@ namespace BoatLibrary.Repos
                 if (item.Id == Id)
                 {
                     _equipmentRepository.Remove(item);
+                    return;
                 }
             }
         }

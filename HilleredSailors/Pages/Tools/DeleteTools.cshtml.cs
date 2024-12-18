@@ -4,12 +4,12 @@ using BoatLibrary.Repos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HilleredSailors.Pages.Equipments
+namespace HilleredSailors.Pages.Tools
 {
-    public class DeleteEquipmentModel : PageModel
+    public class DeleteToolsModel : PageModel
     {
         #region Instances
-        private EquipmentRepository _equipmentRepository;
+        private IEquipmentRepository _equipmentRepository;
         #endregion
 
         #region Properties
@@ -19,22 +19,22 @@ namespace HilleredSailors.Pages.Equipments
         #endregion
 
         #region Constructor
-        public DeleteBookingModel(IBoatRepository BRepo, Member m)
+        public DeleteToolsModel(IEquipmentRepository equipRepo, Member member)
         {
-            Member = m;
-            _boatRepository = BRepo;
+            _equipmentRepository = equipRepo;
+            Member = member;
         }
         #endregion
 
         #region Methods
-        public void OnGet(string deleteSN)
+        public void OnGet(int id)
         {
-            Boat = _boatRepository.GetBoat(deleteSN);
+            Equipment = _equipmentRepository.GetEquipment(id);
         }
         public IActionResult OnPost()
         {
-            _boatRepository.DeleteBoat(Boat.SailNumber);
-            return Redirect("ShowBoats");
+            _equipmentRepository.DeleteEquipment(Equipment.Id);
+            return Redirect("ShowTools");
         }
         #endregion
     }

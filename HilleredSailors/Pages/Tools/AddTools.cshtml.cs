@@ -4,25 +4,25 @@ using BoatLibrary.Repos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HilleredSailors.Pages.Equipments
+namespace HilleredSailors.Pages.Tools
 {
-    public class AddEquipmentModel : PageModel
+    public class AddToolsModel : PageModel
     {
         #region Instances
-        private EquipmentRepository _equipmentRepository;
+        private IEquipmentRepository _equipmentRepository;
         #endregion
 
         #region Properties
         [BindProperty]
         public Equipment Equipment { get; set; }
-        [BindProperty]
-        public Equipment Description { get; set; }
+        public Member Member { get; set; }
         #endregion
 
         #region Constructor
-        public AddEquipmentModel(EquipmentRepository equipment)
+        public AddToolsModel(IEquipmentRepository equipment, Member member)
         {
             _equipmentRepository = equipment;
+            Member = member;
         }
         #endregion
 
@@ -33,7 +33,7 @@ namespace HilleredSailors.Pages.Equipments
         public IActionResult OnPost()
         {
             _equipmentRepository.AddEquipment(Equipment);
-            return RedirectToPage("ShowEquipment");
+            return RedirectToPage("ShowTools");
         }
         #endregion
     }
