@@ -4,7 +4,7 @@ using BoatLibrary.Repos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HilleredSailors.Pages.Equipments
+namespace HilleredSailors.Pages.Equipment
 {
     public class ReturnEquipmentModel : PageModel
     {

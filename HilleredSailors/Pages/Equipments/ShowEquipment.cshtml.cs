@@ -9,7 +9,7 @@ namespace HilleredSailors.Pages.Equipment
     public class ShowEquipmentModel : PageModel
     {
         #region Instances
-        private IEquipmentRepository _equipmentRepository;
+        private EquipmentRepository _equipmentRepository;
         #endregion
 
         #region Properties
