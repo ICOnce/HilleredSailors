@@ -27,8 +27,17 @@ namespace HilleredSailors.Pages.member
 
         public IActionResult OnPost()
         {
-            _memberRepository.UpdateMember(member.Id, member);
-            return RedirectToPage("/Index");
+            try
+            {
+                _memberRepository.UpdateMember(member.Id, member);
+                return RedirectToPage("/Index");
+            }
+            catch (UnavailableEmailException ex)
+            {
+                ModelState.AddModelError("member.Email", ex.Message);
+            }
+            return Page();
+
         }
     }
 }

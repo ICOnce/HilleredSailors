@@ -28,6 +28,10 @@ public class MemberRepo : IMemberRepository
     #region Methods
     public void AddMember(Member member)
     {
+        foreach(Member m in _memberList)
+        {
+            if (m.Email == member.Email) throw new UnavailableEmailException("Email already in use");
+        }
         _memberList.Add(member);
     }
     public void DeleteMember(int id)
@@ -40,6 +44,7 @@ public class MemberRepo : IMemberRepository
                 return;
             }
         }
+        throw new MemberNotFoundException("No member with provided ID");
     }
     public List<Member> GetAll()
     {
@@ -54,7 +59,7 @@ public class MemberRepo : IMemberRepository
                 return member;
             }
         }
-        return null;
+        throw new MemberNotFoundException("No member with provided ID");
     }
     public void UpdateMember(int ID, Member member)
     { 
@@ -68,7 +73,15 @@ public class MemberRepo : IMemberRepository
                 m.Type = member.Type;
                 return; 
             }
+            else
+            {
+                if(m.Email == member.Email)
+                {
+                    throw new UnavailableEmailException("Email already in use");
+                }
+            }
         }
+        throw new MemberNotFoundException("No member with provided ID");
     }
     #endregion
 }
