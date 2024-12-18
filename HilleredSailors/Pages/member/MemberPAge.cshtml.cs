@@ -17,7 +17,7 @@ namespace HilleredSailors.Pages.member
             _mRepository = IMR;
             foreach (Member m1 in _mRepository.GetAll())
             {
-                if (m1.Name == member.Name) {
+                if (m1.Id == member.Id) {
                     int t = member.Id;
                     member = m1;
                     member.Id = t;
@@ -46,13 +46,17 @@ namespace HilleredSailors.Pages.member
             Member.Type = m.Type;
             
             _mRepository.UpdateMember(Member.Id,Member);
-
+            m=_mRepository.GetMember(Member.Id);
             m.Name = Member.Name;
             m.Phone = Member.Phone;
             m.Email = Member.Email;
             m.Type = Member.Type;
             m.Id = Member.Id;
             return Page();
+        }
+        public IActionResult OnPostLogOut() {
+            Program.LoggedIn=false;
+            return Redirect("LogOut");
         }
 
         

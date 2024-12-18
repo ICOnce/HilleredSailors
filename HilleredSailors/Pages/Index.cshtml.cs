@@ -8,7 +8,6 @@ namespace HilleredSailors.Pages
     {
         private IBookingRepository _bookingRepository;
         private readonly ILogger<IndexModel> _logger;
-        [BindProperty]
         public Member Member { get; set; }
         public List<Booking> BookingList { get; private set; }
 
@@ -18,6 +17,7 @@ namespace HilleredSailors.Pages
             _logger = logger;
             BookingList = new List<Booking>();
             Member = m;
+            
         }
 
         public void OnGet()

@@ -11,14 +11,12 @@
     @item.Description;
 
 
-    <form method="post" asp-route-i="@item.Date.ToString()" asp-page-handler="AddMember">
-        <label>Members</label>
-        <select id="MemberId" name="MemberId"
-                asp-for="@Model.MemberID"
-                asp-items="@Model.memberList">
-        </select>
-        <br />
-        <input type="submit" value="AddMember" />
-        <br />
+    <form method="post"  asp-route-i=" @item.Date.ToString()" asp-page-handler="AddMember">
+
+
+        <div class="formgroup">
+            <input type="submit" value="Book" class="btn btn-primary" />
+        </div>
+       
     </form>
 }

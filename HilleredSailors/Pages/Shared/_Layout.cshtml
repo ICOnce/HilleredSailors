@@ -33,7 +33,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Events/RegisterForEvents">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Events/RegisterForEvents">Blog</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Events/ShowEvents">ShowEvents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/member/ShowMembers">ShowMembers</a>
                         </li>
                         @if(!Program.LoggedIn){
                             <li class="nav-item">
@@ -46,7 +49,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/member/MemberPAge">MemberPage</a>
                             </li>
                         }
-                        @if (@Model.Member.Type!=MemberType.MemberTypes.member)
+                        @if (@Model.Member.Type != MemberType.MemberTypes.member)
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">Admin Functions</a>
@@ -56,13 +59,8 @@
                                     <li><a class="nav-link text-dark" asp-area="" asp-page="/Bookings/ShowBookings">Bookings</a></li>
                                 </ul>
                             </li>
-                        
-                        }
-                        
 
-                        @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Contacts">Contact Us</a>
-                        </li> *@
+                        } 
                     </ul>
                 </div>
             </div>

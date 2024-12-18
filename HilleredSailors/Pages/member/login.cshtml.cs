@@ -9,12 +9,11 @@ namespace HilleredSailors.Pages.member
     {
         private Member test;
         [BindProperty]
-        public Member Member { get; set; }
+        public Member Member { get; set; }=new Member();
         
         
         IMemberRepository _memberRepo;
         public loginModel(Member logIn , IMemberRepository IMR) { 
-            Member = logIn;
             test = logIn;
             _memberRepo = IMR;
         }
@@ -30,6 +29,7 @@ namespace HilleredSailors.Pages.member
                     test.Name = member.Name;
                     test.Email = member.Email;
                     test.Phone = member.Phone;
+                    test.Id = member.Id;
                     test.Type = member.Type;
                     Member = test;
                     Program.LoggedIn = true;
