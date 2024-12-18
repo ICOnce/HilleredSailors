@@ -12,6 +12,7 @@ namespace BoatLibrary.Repos
     {
         #region Instances
         private List<Equipment> _equipmentRepository;
+        //private Dictionary<Equipment, int> _equipmentRepository;
         #endregion
 
         #region Properties
@@ -24,62 +25,74 @@ namespace BoatLibrary.Repos
         {
             _equipmentRepository = new List<Equipment>();
         }
+        /*
+        public EquipmentRepository()
+        {
+            _equipmentRepository = new Dictionary<Equipment, int>;
+        }
+        */
         #endregion
 
         #region Methods
-        public void AddEquipment(Equipment equipment)
+        public void AddEquipment(Equipment equipment, int id)
         {
             _equipmentRepository.Add(equipment);
         }
-        public void CheckStatus(Equipment equipment, int Id)
+        /*
+        public void AddEquipment(Equipment equipment, int id)
+        {
+            _equipmentRepository.Add(equipment, id);
+        }
+        */
+        public void CheckStatus(Equipment equipment, int id)
         {
             foreach (var item in _equipmentRepository)
             {
-                if (item.Id == Id && item.Status == true)
+                if (item.Id == id && item.Status == true)
                 {
                     Console.WriteLine("Equipment is available.");
                 }
-                else if (item.Id == Id && item.Status == false)
+                else if (item.Id == id && item.Status == false)
                 {
                     Console.WriteLine("Equipment is unavailable.");
                 }
             }
         }
-        public void BorrowEquipment(Equipment equipment, int Id)
+        public void BorrowEquipment(Equipment equipment, int id)
         {
             foreach (var item in _equipmentRepository)
             {
-                if (item.Id == Id && item.Status == true)
+                if (item.Id == id && item.Status == true)
                 {
                     equipment.Status = false;
                 }
             }
         }
-        public void ReturnEquipment(Equipment equipment, int Id)
+        public void ReturnEquipment(Equipment equipment, int id)
         {
             foreach (var item in _equipmentRepository)
             {
-                if (item.Id == Id && item.Status == false)
+                if (item.Id == id && item.Status == false)
                 {
                     equipment.Status = true;
                 }
             }
         }
-        public void DeleteEquipment(int Id)
+        public void DeleteEquipment(int id)
         {
             foreach (var item in _equipmentRepository)
             {
-                if (item.Id == Id)
+                if (item.Id == id)
                 {
                     _equipmentRepository.Remove(item);
                 }
             }
         }
-        public Equipment GetEquipment(int Id)
+        public Equipment GetEquipment(int id)
         {
             foreach (Equipment equipment in _equipmentRepository)
             {
-                if (equipment.Id == Id)
+                if (equipment.Id == id)
                 {
                     return equipment;
                 }

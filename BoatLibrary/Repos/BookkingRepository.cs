@@ -87,10 +87,6 @@ namespace BoatLibrary.Repos
                 }
             }
         }
-        public string Tostring()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 #endregion
