@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public interface IMember
 {
     public int Id { get; set; } 
-    string Phone {  get; set; }
-    string Name { get; set; }
-    string Email { get; set; }
-    MemberType.MemberTypes Type { get; set; }
-    String ToString();
+    public string Phone {  get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public MemberType.MemberTypes Type { get; set; }
+    public String ToString();
 }

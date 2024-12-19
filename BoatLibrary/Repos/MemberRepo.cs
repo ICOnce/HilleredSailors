@@ -83,6 +83,10 @@ public class MemberRepo : IMemberRepository
         }
         throw new MemberNotFoundException("No member with provided ID");
     }
+
+    public string ToString() {
+        return null;
+    }
     #endregion
 }
 
