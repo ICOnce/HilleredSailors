@@ -11,7 +11,7 @@ namespace BoatLibrary.Interfaces
     {
         public int Count { get; }
         public bool Status { get; set; }
-        public void AddEquipment(string name, string? description);
+        public void AddEquipment(string? name, string? description);
         public void CheckStatus(int id);
         public void BorrowEquipment(int id);
         public void ReturnEquipment(int id);
