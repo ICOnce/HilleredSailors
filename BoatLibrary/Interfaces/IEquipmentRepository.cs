@@ -7,23 +7,16 @@ using BoatLibrary.Objects;
 
 namespace BoatLibrary.Interfaces
 {
-    internal interface IEquipmentRepository
+    public interface IEquipmentRepository
     {
         public int Count { get; }
         public bool Status { get; set; }
-        public void AddEquipment(Equipment equipment);
-        public void CheckStatus(Equipment equipment, int Id);
-        public void BorrowEquipment(Equipment equipment, int Id);
-        public void ReturnEquipment(Equipment equipment, int Id);
-        public void DeleteEquipment(int Id);
-        public Equipment GetEquipment(int Id);
-
-        public void CheckStatus(Equipment equipment, int id);
-        public void BorrowEquipment(Equipment equipment, int id);
-        public void ReturnEquipment(Equipment equipment, int id);
-        public void DeleteEquipment(int íd);
+        public void AddEquipment(string name, string? description);
+        public void CheckStatus(int id);
+        public void BorrowEquipment(int id);
+        public void ReturnEquipment(int id);
+        public void DeleteEquipment(int id);
         public Equipment GetEquipment(int id);
->>>>>>> Stashed changes
         public List<Equipment> GetAll();
     }
 }

@@ -14,6 +14,7 @@ public class Program
         builder.Services.AddSingleton<Member>(new Member());
         builder.Services.AddSingleton<IMemberRepository, MemberRepo>();
         builder.Services.AddSingleton<IBoatRepository, BoatRepo>();
+        builder.Services.AddSingleton<IEquipmentRepository, EquipmentRepository>();
         builder.Services.AddSingleton<IBookingRepository, BookkingRepository>();
         builder.Services.AddSingleton<IEventRepository, EventRepo>();
         var app = builder.Build();

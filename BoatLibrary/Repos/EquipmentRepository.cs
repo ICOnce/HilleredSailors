@@ -11,7 +11,6 @@ namespace BoatLibrary.Repos
     public class EquipmentRepository : IEquipmentRepository
     {
         #region Instances
-        private int _id = 0;
         private List<Equipment> _equipmentRepository;
         #endregion
 
@@ -28,41 +27,51 @@ namespace BoatLibrary.Repos
         #endregion
 
         #region Methods
-        public void AddEquipment(Equipment equipment)
+        public void AddEquipment(string? name, string? description)
         {
+            Equipment equipment = new Equipment(name, description);
             _equipmentRepository.Add(equipment);
         }
-        public void CheckStatus(Equipment equipment, int Id)
+        public void CheckStatus(int id)
         {
             foreach (var item in _equipmentRepository)
             {
-                if (item.Id == Id && item.Status == true)
+                if (item.Status == true)
                 {
-                    Console.WriteLine("Equipment is available.");
+                    return;
                 }
-                else if (item.Id == Id && item.Status == false)
+                else if (item.Status == false)
                 {
                     Console.WriteLine("Equipment is unavailable.");
+                    return;
                 }
             }
         }
-        public void BorrowEquipment(Equipment equipment, int Id)
+        public void BorrowEquipment(int Id)
         {
             foreach (var item in _equipmentRepository)
             {
-                if (item.Id == Id && item.Status == true)
+                if (item.Id == Id)
                 {
-                    equipment.Status = false;
+                    if (item.Status == true)
+                    {
+                        item.Status = false;
+                        return;
+                    }
                 }
             }
         }
-        public void ReturnEquipment(Equipment equipment, int Id)
+        public void ReturnEquipment(int Id)
         {
             foreach (var item in _equipmentRepository)
             {
-                if (item.Id == Id && item.Status == false)
+                if (item.Id == Id)
                 {
-                    equipment.Status = true;
+                    if (item.Status == false)
+                    {
+                        item.Status = true;
+                        return;
+                    }
                 }
             }
         }
@@ -73,12 +82,13 @@ namespace BoatLibrary.Repos
                 if (item.Id == Id)
                 {
                     _equipmentRepository.Remove(item);
+                    return;
                 }
             }
         }
         public Equipment GetEquipment(int Id)
         {
-            foreach (Equipment equipment in _equipmentRepository)
+            foreach (var equipment in _equipmentRepository)
             {
                 if (equipment.Id == Id)
                 {
