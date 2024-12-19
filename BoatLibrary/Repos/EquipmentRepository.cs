@@ -27,7 +27,7 @@ namespace BoatLibrary.Repos
         #endregion
 
         #region Methods
-        public void AddEquipment(string name, string? description)
+        public void AddEquipment(string? name, string? description)
         {
             Equipment equipment = new Equipment(name, description);
             _equipmentRepository.Add(equipment);
