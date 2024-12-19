@@ -35,6 +35,10 @@ public class Member : IMember
         counter++;
         _id = counter;
     }
+
+    public string ToString() {
+        return null;
+    }
     #endregion
 }
 

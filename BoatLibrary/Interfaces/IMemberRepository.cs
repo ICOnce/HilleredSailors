@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 public interface IMemberRepository
 {
-    int MemberCount { get; }
-    Member GetMember(int id);
-    List<Member> GetAll();
-    void AddMember(Member member);
-    void DeleteMember(int id);
-    void UpdateMember(int ID, Member member);
-    String ToString();
+    public int MemberCount { get; }
+    public Member GetMember(int id);
+    public List<Member> GetAll();
+    public void AddMember(Member member);
+    public void DeleteMember(int id);
+    public void UpdateMember(int ID, Member member);
+    public string ToString();
 }
